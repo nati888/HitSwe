@@ -1,5 +1,7 @@
 package View;
 
+import Controller.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -32,7 +34,7 @@ public class AddWorkerPage extends JFrame {
         private JTextField experienceField;
         private JTextField baseSalaryField;
         private  JButton submitButton;
-        private sample.controller.addWorkerController controller=sample.controller.addWorkerController.getMySingelton();
+        private AddWorkerController controller= AddWorkerController.getMySingelton();
 
         public static void main(String[] args) {
             EventQueue.invokeLater(new Runnable() {
@@ -156,8 +158,4 @@ public class AddWorkerPage extends JFrame {
             panel.setLayout(layout);
 
         }
-
-
-    }
-
 }

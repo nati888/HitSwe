@@ -1,6 +1,6 @@
 package View;
 
-import java.util.Observable;
+/*import java.util.Observable;
 
 public class ObservableView extends Observable {
 
@@ -9,6 +9,6 @@ public class ObservableView extends Observable {
             setChanged();
             notifyObservers();
         }
-    }
-
 }
+*/
+

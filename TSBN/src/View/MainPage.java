@@ -103,6 +103,4 @@ public class MainPage extends JFrame {
             panel.setLayout(layout);
 
         }
-    }
-
 }
