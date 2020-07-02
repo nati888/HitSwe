@@ -15,15 +15,15 @@ import java.util.ArrayList;
 
         void addWorker(Worker new_worker){
             worker_List.add(new_worker);
-            Excel.add_Worker_To_Excel(new_worker);
+//            Excel.add_Worker_To_Excel(new_worker);
         }
         void removeWorker(Worker remove_worker) throws IOException {
             worker_List.remove(remove_worker);
-            Excel.fired_Workers_Excel(remove_worker);
-            Excel.clear_Excel();
+//            Excel.fired_Workers_Excel(remove_worker);
+ //           Excel.clear_Excel();
             for(int i=0;i<worker_List.size();i++){
                 Worker worker=this.worker_List.get(i);
-                Excel.add_Worker_To_Excel(worker);
+ //               Excel.add_Worker_To_Excel(worker);
 
             }
         }
