@@ -4,12 +4,12 @@ import Model.Worker;
 
 import java.util.ArrayList;
 
-public class Departments {
+public class Department {
     private int ID;
     private  String Name;
     private ArrayList<Worker> Workers;
 
-    public Departments(int id, String name, ArrayList<Worker> Workres) {
+    public Department(int id, String name, ArrayList<Worker> Workres) {
         this.ID = id;
         this.Name = name;
         this.Workers = new ArrayList<Worker>();
