@@ -64,9 +64,25 @@ public class Worker extends Person {
             return true;
         }
         return false;
-
+    }
+    public boolean CheckEmail() {
+        Workers worker_list=Workers.getMySingelton();
+        int counter=0, i=0;
+        if(this.getMail().charAt(i)=='@')
+        return false;
+        for (i=1;i<this.getMail().length();i++) {
+            if (this.getMail().charAt(i) == '@')
+                counter++;
+            if (counter > 1)
+                return false;
+        }
+        if(counter==1)
+        return true;
+        return false;
     }
 
-
 }
+
+
+
 

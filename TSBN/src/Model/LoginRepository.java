@@ -21,6 +21,5 @@ public class LoginRepository {
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name) && worker_list.getWorker_i(i).getPassword().equals(password))
                 return true;
         return false;
-
     }
 }
