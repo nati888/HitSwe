@@ -1,8 +1,7 @@
-package Controller.Exception;
+package Controller.Exception1;
 
 public class AlreadyExistException extends Exception {
-    public AlreadyExistException(String the_id_is_already_exist) {
-    }
-    public AlreadyExistException(int the_id_is_already_exist) {
+    public AlreadyExistException(String massage) {
+        super(massage);
     }
 }
