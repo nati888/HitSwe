@@ -15,20 +15,10 @@ public class LoginController {
         return Instance;
     }
     public boolean login(String user_name, String password) throws AlreadyExistException {
-        if (user_name.equals("") || password.equals("")) {
+        if (user_name.equals("") || password.equals("")) //check if one of the details entered is empty
             return false;
-        }
-        if(!worker_list.SearchingWorkerBool(user_name)) {
-            throw new AlreadyExistException("user" + user_name +"is already exist" );
-        }
-        // if(!worker_list.SearchingWorkerBool(Integer.parseInt(ID)))
-        //     throw new AlreadyExistException("ID" + ID +"is already exist" );
-        if(!login_Service.CheckMatch(user_name,password)) {
-            throw new AlreadyExistException("no match between password and username" + user_name);
-        }
-        if(!worker_list.SearchingWorkerBool(user_name)) {
-            throw new AlreadyExistException("user" + user_name +"is already exist" );
-        }
+        if(!worker_list.SearchingWorkerBool(user_name)) //check if exxist worker whit the user name that entered in the worker list
+            throw new AlreadyExistException("user" + user_name +"is not exist" );
         String session = login_Service.login(user_name, password);
         if (session != null) {
             System.out.println("Session token: " + session);

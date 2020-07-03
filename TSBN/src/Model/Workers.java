@@ -40,14 +40,18 @@ import java.util.ArrayList;
             return null;
         }
     public Boolean SearchingWorkerBool(int ID){
-        for (int i=0;i<this.worker_List.size();i++)
-            if(worker_List.get(i).getIDperson()==ID)
+        Workers worker_list=Workers.getMySingelton();
+        for (int i=0;i<worker_list.getSize();i++)
+            if(worker_list.getWorker_i(i).getIDperson()==ID)
                 return true;
         return false;
     }
     public Boolean SearchingWorkerBool(String user_name){
-        for (int i=0;i<this.worker_List.size();i++)
-            if(worker_List.get(i).getUser_name()==user_name)
+        Workers worker_list=Workers.getMySingelton();
+        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,2,105,52,"sapir","irani");
+        worker_list.addWorker(worker);
+        for (int i = 0; i < worker_list.getSize(); i++)
+            if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
                 return true;
         return false;
     }

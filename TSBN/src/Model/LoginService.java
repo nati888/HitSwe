@@ -17,12 +17,4 @@ public class LoginService {
             return UUID.randomUUID().toString();
         return null;
     }
-    public boolean CheckMatch(String user_name, String password)
-    {
-        Workers worker_list=Workers.getMySingelton();
-        Worker temp_worker =worker_list.searchingWorker(user_name);
-        if(temp_worker.getPassword() == password)
-            return true;
-        return false;
-    }
 }

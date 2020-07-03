@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import java.io.IOException;
         import java.util.UUID;
@@ -25,3 +25,4 @@ public class DeleteWorkerRepository {
     }
 
 }
+*/

@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+import Controller.Exception1.AlreadyExistException;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -133,8 +134,13 @@ public class AddWorkerPage extends JFrame {
             submitButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //   observableView.notifyObs(new Object[]{lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText()});
-                    boolean success = controller.add(lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText());
+//                   observableView.notifyObs(new Object[]{lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText()});
+                    boolean success = false;
+                    try {
+                        success = controller.add(lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText());
+                    } catch (AlreadyExistException alreadyExistException) {
+                        alreadyExistException.printStackTrace();
+                    }
 
                     if (success) {
                         JOptionPane.showMessageDialog(null, "Worker has been added successfully! ", "Success", 1);
@@ -148,11 +154,6 @@ public class AddWorkerPage extends JFrame {
                 }
             });
             panel.add(submitButton);
-
-
-
-
-
             setContentPane(panel);
             GroupLayout layout=new GroupLayout(panel);
             panel.setLayout(layout);

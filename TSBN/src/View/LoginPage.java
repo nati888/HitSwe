@@ -2,6 +2,8 @@ package View;
 
 
 import Controller.*;
+import Controller.Exception1.AlreadyExistException;
+
 import javax.swing.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class LoginPage  extends JFrame {
         private JLabel passwordLabel;
         private JButton button;
 
-//        private View.ObservableView observableView = new View.ObservableView();
+//      private View.ObservableView observableView = new View.ObservableView();
         private LoginController controller= LoginController.getMySingelton();
 
 
@@ -62,8 +64,13 @@ public class LoginPage  extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-//                    observableView.notifyObs(new Object[]{userText.getText(), new String(passwordField.getPassword())});
-                    boolean success = controller.login(userText.getText(), new String(passwordField.getPassword()));
+                 // observableView.notifyObs(new Object[]{userText.getText(), new String(passwordField.getPassword())});
+                    boolean success = false;
+                    try {
+                        success = controller.login(userText.getText(), new String(passwordField.getPassword()));
+                    } catch (AlreadyExistException alreadyExistException) {
+                        alreadyExistException.printStackTrace();
+                    }
                     checkUser(success,userText.getText());
 
                 }
