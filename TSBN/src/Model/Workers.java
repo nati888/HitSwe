@@ -9,12 +9,17 @@ import java.util.ArrayList;
         private static ArrayList<Worker> worker_List=new ArrayList<Worker>();
         private Workers() { }
 
+        public static ArrayList<Worker> getWorker_List() {
+            return worker_List;
+        }
+
         public static Workers getMySingelton(){
             return Instance;
         }
 
         void addWorker(Worker new_worker){
             worker_List.add(new_worker);
+            File.fileWrite();
 //            Excel.add_Worker_To_Excel(new_worker);
         }
         void removeWorker(Worker remove_worker) throws IOException {
