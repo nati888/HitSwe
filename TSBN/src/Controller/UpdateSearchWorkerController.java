@@ -3,15 +3,15 @@ import Controller.Exception1.AlreadyExistException;
 import Model.*;
 
 
-public class UpdateWorkerController {
+public class UpdateSearchWorkerController {
     Workers worker_list=Workers.getMySingelton();
-    private static UpdateWorkerController Instance;
-    private UpdateWorkerRepository UpdateWorker=UpdateWorkerRepository.getMySingelton();
-    public UpdateWorkerController() {
+    private static UpdateSearchWorkerController Instance;
+    private UpdateSearchWorkerRepository UpdateWorker= UpdateSearchWorkerRepository.getMySingelton();
+    public UpdateSearchWorkerController() {
     }
-    public static UpdateWorkerController getMySingelton(){
+    public static UpdateSearchWorkerController getMySingelton(){
         if(Instance==null)
-            Instance=new UpdateWorkerController();
+            Instance=new UpdateSearchWorkerController();
         return Instance;
     }
 

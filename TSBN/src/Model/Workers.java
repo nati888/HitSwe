@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
     void addWorker(Worker new_worker){
         worker_List.add(new_worker);
-//            Excel.add_Worker_To_Excel(new_worker);
     }
     void removeWorker(Worker remove_worker) throws IOException {
         worker_List.remove(remove_worker);
@@ -45,9 +44,10 @@ import java.util.ArrayList;
     }
     public Boolean SearchingWorkerBool(String user_name){
         Workers worker_list=Workers.getMySingelton();
-        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,2,105,52,"sapir","irani");
+        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,10,105,52,"sapir","irani");
         worker_list.addWorker(worker);
         worker.setHours(5);
+        System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
                 return true;
