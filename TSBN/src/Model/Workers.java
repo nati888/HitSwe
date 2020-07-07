@@ -2,9 +2,10 @@ package Model;
 
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-    public class Workers {
+    public class Workers implements Serializable {
         private static Workers Instance=new Workers();
         private static ArrayList<Worker> worker_List=new ArrayList<Worker>();
         private Workers() { }
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
         void addWorker(Worker new_worker){
             worker_List.add(new_worker);
-            File.fileWrite();
+            //File.fileWrite();
 //            Excel.add_Worker_To_Excel(new_worker);
         }
         void removeWorker(Worker remove_worker) throws IOException {
