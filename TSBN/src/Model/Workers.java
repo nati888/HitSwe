@@ -13,16 +13,13 @@ import java.util.ArrayList;
         return Instance;
     }
 
-    void addWorker(Worker new_worker){
+   public void addWorker(Worker new_worker){
         worker_List.add(new_worker);
     }
-    void removeWorker(Worker remove_worker) throws IOException {
+  public  void removeWorker(Worker remove_worker) throws IOException {
         worker_List.remove(remove_worker);
-
-        for(int i=0;i<worker_List.size();i++){
-            Worker worker=this.worker_List.get(i);
         }
-}
+
     public Worker searchingWorkerById(String ID){
         for (int i=0;i<this.worker_List.size();i++)
             if(worker_List.get(i).getIDperson()==Integer.parseInt(ID))
@@ -44,7 +41,7 @@ import java.util.ArrayList;
     }
     public Boolean SearchingWorkerBool(String user_name){
         Workers worker_list=Workers.getMySingelton();
-        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,10,105,52,"sapir","irani");
+        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,1,105,52,"sapir","irani");
         worker_list.addWorker(worker);
         worker.setHours(5);
         System.out.println(worker_list.getWorker_i(0).getJob_ID());

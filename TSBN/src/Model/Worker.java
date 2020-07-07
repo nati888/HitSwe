@@ -6,7 +6,7 @@ public class Worker extends Person {
     int NUM_WORKER = 1;
 
     public Worker(String last_name, String first_name, int ID, String mail,int department_id, int Job_ID, float experience, float base_salary,String user_name, String password) {
-        super(last_name, first_name, ID,mail);
+        super(last_name, first_name,ID,mail);
         this.num_Worker = NUM_WORKER++;
         this.department_ID = department_id;
         this.job_ID = job_ID;
@@ -17,9 +17,6 @@ public class Worker extends Person {
         this.user_name=user_name;
         this.password = password;
     }
-
-
-
     private int num_Worker;
     private int department_ID;
     private double experience;
@@ -81,7 +78,3 @@ public class Worker extends Person {
     }
 
 }
-
-
-
-

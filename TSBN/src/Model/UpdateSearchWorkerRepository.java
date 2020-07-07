@@ -14,9 +14,11 @@ public class UpdateSearchWorkerRepository {
 
     public Object[] getworker(String ID)
     {
+        Departments departments_list=Departments.getMySingelton();
+        Jobs jobs_list=Jobs.getMySingelton();
         Workers worker_list=Workers.getMySingelton();
         Worker worker=worker_list.searchingWorkerById(ID);
-        return new Object[] {worker.getLast_name(), worker.getFirst_name(),worker.getIDperson(),worker.getMail(),worker.getDepartment_ID(),worker.getJob_ID(),worker.getExperience(),worker.getBase_Salary(),worker.getUser_name(),worker.getPassword()};
+        return new Object[] {worker.getLast_name(), worker.getFirst_name(),worker.getIDperson(),worker.getMail(),departments_list.searchingDepartmentById(worker.getDepartment_ID()).getName(),jobs_list.searchingJobById(worker.getJob_ID()).getJob_Name(),worker.getExperience(),worker.getBase_Salary(),worker.getUser_name(),worker.getPassword()};
     }
 
     public String updateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password){
