@@ -1,10 +1,14 @@
 package View;
 
+import Controller.DeleteWorkerController;
+import Controller.Exception1.AlreadyExistException;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 public class DeletePage extends JFrame {
@@ -12,7 +16,7 @@ public class DeletePage extends JFrame {
         private JLabel userIDLabel;
         private JTextField userIDField;
         private JButton deletebutton;
-
+    private DeleteWorkerController controller= DeleteWorkerController.getMySingelton();
 
         public static void main(String[] args) {
             EventQueue.invokeLater(new Runnable() {
@@ -46,6 +50,14 @@ public class DeletePage extends JFrame {
             deletebutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    boolean successDelete = false;
+                    try {
+                        successDelete = controller.delete(userIDField.getText());
+                    } catch (IOException alreadyExistException) {
+                        alreadyExistException.printStackTrace();
+                    }
+                    checkUser(successDelete,userIDField.getText());
+
                 }
             });
             panel.add(deletebutton);
@@ -56,4 +68,17 @@ public class DeletePage extends JFrame {
             panel.setLayout(layout);
 
         }
+    public void checkUser(boolean isValidUser,String userName)
+    {
+        if(!isValidUser){
+            JOptionPane.showMessageDialog(null,"Worker ID does not exist");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Worker ID:  "+userName+" deleted"," deleted",1);
+            MainPage view=new View.MainPage();
+            dispose();
+            view.setVisible(true);
+        }
+    }
 }

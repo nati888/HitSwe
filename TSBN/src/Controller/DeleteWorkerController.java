@@ -1,4 +1,4 @@
-/*package Controller;
+package Controller;
 
 import Model.*;
 
@@ -33,4 +33,3 @@ public class DeleteWorkerController {
 
 }
 
-*/

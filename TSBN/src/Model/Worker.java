@@ -80,7 +80,9 @@ public class Worker extends Person {
         return true;
         return false;
     }
-
+    void changeUserName(String user_name){
+        this.user_name=user_name;
+    }
 }
 
 

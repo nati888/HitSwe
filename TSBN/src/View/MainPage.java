@@ -61,7 +61,9 @@ public class MainPage extends JFrame {
             deleteWorkerButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    DeletePage view=new DeletePage();
+                    dispose();
+                    view.setVisible(true);
                 }
             });
             panel.add(deleteWorkerButton);
