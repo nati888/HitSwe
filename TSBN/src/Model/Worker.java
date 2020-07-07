@@ -40,28 +40,27 @@ public class Worker extends Person {
     public String getUser_name(){ return user_name;}
     public int getJob_ID() { return job_ID; }
     public void setHours(float hours) { this.hours = hours; }
-    void changeJobID(int new_ID){
+    public void changeJobID(int new_ID){
         this.job_ID=new_ID;
     }
-    void changeExperience(float new_experience){
+    public void changeExperience(float new_experience){
         this.experience=new_experience;
     }
-    void changeDepartmentID(int new_department){
+    public void changeDepartmentID(int new_department){
         this.department_ID=new_department;
     }
-    void changeSalary(float new_salary){
+    public void changeSalary(float new_salary){
         this.base_Salary=new_salary;
     }
-    double calculateSalary(){
+    public double calculateSalary(){
         return base_Salary*hours;
     }
-    void addAssessment(String assessment1){
+    public void addAssessment(String assessment1){
         assessment.add( assessment1);
     }
-    void changeUserName(String user_name_new) {
+    public void changeUserName(String user_name_new) {
         this.password = user_name_new;
     }
-
     boolean changePassword(String new_pass) {
         if (new_pass.length() > 8) {
             this.password = new_pass;
@@ -84,6 +83,7 @@ public class Worker extends Person {
         return true;
         return false;
     }
+
 
 }
 

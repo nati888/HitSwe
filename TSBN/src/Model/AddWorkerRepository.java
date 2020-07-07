@@ -1,5 +1,4 @@
 package Model;
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class AddWorkerRepository {
@@ -15,7 +14,7 @@ public class AddWorkerRepository {
 
     public String addWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password){
         Workers worker_list=Workers.getMySingelton();
-        Worker worker=new Worker( last_name, first_name, Integer.parseInt(ID),  mail, Integer.parseInt(department_id),  Integer.parseInt(Job_ID),Integer.parseInt(experience), Integer.parseInt(base_salary), user_name,  password);
+        Worker worker= new WorkerBuilder().Last_name(last_name).First_name(first_name).ID(Integer.parseInt(ID)).Mail(mail).Department_id(Integer.parseInt(department_id)).Job_ID(Integer.parseInt(Job_ID)).Experience(Integer.parseInt(experience)).Base_salary(Integer.parseInt(base_salary)).User_name(user_name).Password(password).createWorker();
         worker_list.addWorker(worker);
         return UUID.randomUUID().toString();
     }
