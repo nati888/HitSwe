@@ -14,6 +14,7 @@ public class MainPage extends JFrame {
         private JButton calculateSalaryButton;
         private JButton UpdateWorkerPageButton;
         private JButton findWorkerButton;
+        private JButton logOutButton;
 
         public static void main(String[] args) {
             EventQueue.invokeLater(new Runnable() {
@@ -74,7 +75,9 @@ public class MainPage extends JFrame {
             findWorkerButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    SearchingWorkerPage view=new SearchingWorkerPage();
+                    dispose();
+                    view.setVisible(true);
                 }
             });
             panel.add(findWorkerButton);
@@ -90,8 +93,20 @@ public class MainPage extends JFrame {
 
                 }
             });
-            panel.add(calculateSalaryButton);
 
+            panel.add(calculateSalaryButton);
+            logOutButton=new JButton("Log Out");
+            logOutButton.setBounds(300,400,150,25);
+            logOutButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    LoginPage view=new LoginPage();
+                    dispose();
+                    view.setVisible(true);
+
+                }
+            });
+            panel.add(logOutButton);
             UpdateWorkerPageButton=new JButton("Update Worker");
             UpdateWorkerPageButton.setBounds(225,250,150,25);
             UpdateWorkerPageButton.addActionListener(new ActionListener() {

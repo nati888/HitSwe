@@ -2,13 +2,13 @@ package Model;
 
 import java.util.UUID;
 
-public class UpdateWorkerRepository {
-    private static UpdateWorkerRepository Instance;
-    private UpdateWorkerRepository() { }
+public class UpdateSearchWorkerRepository {
+    private static UpdateSearchWorkerRepository Instance;
+    private UpdateSearchWorkerRepository() { }
 
-    public static UpdateWorkerRepository getMySingelton(){
+    public static UpdateSearchWorkerRepository getMySingelton(){
         if(Instance==null)
-            Instance=new UpdateWorkerRepository();
+            Instance=new UpdateSearchWorkerRepository();
         return Instance;
     }
 

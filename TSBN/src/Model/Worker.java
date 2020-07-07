@@ -9,13 +9,13 @@ public class Worker extends Person {
         super(last_name, first_name, ID,mail);
         this.num_Worker = NUM_WORKER++;
         this.department_ID = department_id;
+        this.job_ID = job_ID;
         this.experience = experience;
         this.base_Salary = base_salary;
         this.hours = 0;
         this.assessment = new ArrayList<String>();
         this.user_name=user_name;
         this.password = password;
-        this.job_ID = job_ID;
     }
 
 
@@ -59,15 +59,10 @@ public class Worker extends Person {
         assessment.add( assessment1);
     }
     void changeUserName(String user_name_new) {
-        this.password = user_name_new;
+        this.user_name = user_name_new;
     }
-
-    boolean changePassword(String new_pass) {
-        if (new_pass.length() > 8) {
-            this.password = new_pass;
-            return true;
-        }
-        return false;
+    void changePassword(String new_pass) {
+        this.password=new_pass;
     }
     public boolean CheckEmail() {
         Workers worker_list=Workers.getMySingelton();
