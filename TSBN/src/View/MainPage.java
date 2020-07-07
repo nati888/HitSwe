@@ -61,6 +61,9 @@ public class MainPage extends JFrame {
             deleteWorkerButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    DeletePage view=new DeletePage();
+                    dispose();
+                    view.setVisible(true);
 
                 }
             });
@@ -81,6 +84,9 @@ public class MainPage extends JFrame {
             calculateSalaryButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    CalculateSalaryPage view=new CalculateSalaryPage();
+                    dispose();
+                    view.setVisible(true);
 
                 }
             });

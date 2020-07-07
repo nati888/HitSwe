@@ -1,12 +1,9 @@
-/*package Model;
+package Model;
 
-import java.io.IOException;
-        import java.util.ArrayList;
-        import java.util.UUID;
+public class CalculateSalaryRepository   {
 
-public class CalculateSalaryRepository {
-
-    private static CalculateSalaryRepository Instance;
+    private static CalculateSalaryRepository Instance=null;
+    private Workers worker_list=Workers.getMySingelton();
     private CalculateSalaryRepository() { }
 
     public static CalculateSalaryRepository getMySingelton(){
@@ -15,14 +12,23 @@ public class CalculateSalaryRepository {
         return Instance;
     }
 
-    public String calculateSalary(String ID) throws IOException {
-        Workers worker_list=Workers.getMySingelton();
-        Worker worker=worker_list.searchingWorker(Integer.parseInt(ID));
-        if (worker==null)
-            return null;
-        worker_list.removeWorker(worker);
-        return UUID.randomUUID().toString();
+    public Object[] checkValidId(String ID)
+    {
+        boolean isValidId = true;
+        if(worker_list.searchingWorkerById(ID)==null)
+            isValidId=false;
+        return new Object[] {isValidId};
     }
 
+
+    public String CalculateSalary(String ID)
+    {
+        Workers worker_list=Workers.getMySingelton();
+        Worker worker=worker_list.searchingWorkerById(ID);
+        return String.valueOf(worker.calculateSalary());
+    }
 }
-*/
+
+
+
+

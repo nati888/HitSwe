@@ -19,12 +19,9 @@ import java.util.ArrayList;
     }
     void removeWorker(Worker remove_worker) throws IOException {
         worker_List.remove(remove_worker);
-//            Excel.fired_Workers_Excel(remove_worker);
-//           Excel.clear_Excel();
+
         for(int i=0;i<worker_List.size();i++){
             Worker worker=this.worker_List.get(i);
-//               Excel.add_Worker_To_Excel(worker);
-
         }
 }
     public Worker searchingWorkerById(String ID){
@@ -50,6 +47,7 @@ import java.util.ArrayList;
         Workers worker_list=Workers.getMySingelton();
         Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,2,105,52,"sapir","irani");
         worker_list.addWorker(worker);
+        worker.setHours(5);
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
                 return true;
