@@ -15,8 +15,8 @@ public class LoginController {
         return Instance;
     }
     public boolean login(String user_name, String password) throws AlreadyExistException {
-        if (user_name.equals("") || password.equals("")) //check if one of the details entered is empty
-            throw new AlreadyExistException("Username not exist or Username or password null" );
+        if (user_name.trim() == " " || user_name == null || password.trim() == " " || password==null ) //check if one of the details entered is empty
+            throw new AlreadyExistException("Username or password must not be null" );
         if(!worker_list.SearchingWorkerBool(user_name)) //check if exist worker whit the user name that entered in the worker list
             throw new AlreadyExistException("Username not exist or Username or password null" );
         String session = login_Service.login(user_name, password);

@@ -28,11 +28,25 @@ public class WorkerBuilder {
     }
 
     public WorkerBuilder Mail(String mail) {
-        this.mail = mail;
+        int counter=0, i=0;
+        if(mail.charAt(i)=='@')
+            return this;
+        for (i=1;i<mail.length();i++) {
+            if (this.mail.charAt(i) == '@')
+                counter++;
+            if (counter > 1)
+                return this;
+        }
+        if(mail.charAt(mail.length())=='@')
+            return this;
+        if(counter==1)
+            this.mail = mail;
         return this;
     }
 
     public WorkerBuilder Department_id(int department_id) {
+        if(department_id < 0 || department_id > 5)
+            return this;
         this.department_id = department_id;
         return this;
     }
@@ -43,21 +57,29 @@ public class WorkerBuilder {
     }
 
     public WorkerBuilder Experience(float experience) {
+        if(experience < 0)
+            return this;
         this.experience = experience;
         return this;
     }
 
     public WorkerBuilder Base_salary(float base_salary) {
+        if(base_salary <= 30)
+            return this;
         this.base_salary = base_salary;
         return this;
     }
 
     public WorkerBuilder User_name(String user_name) {
+        if(user_name.trim() == " " ||user_name == null)
+            return this;
         this.user_name = user_name;
         return this;
     }
 
     public WorkerBuilder Password(String password) {
+        if(password.trim() == " " ||password == null)
+            return this;
         this.password = password;
         return this;
     }
