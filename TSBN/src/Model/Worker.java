@@ -1,5 +1,6 @@
 package Model;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class Worker extends Person {
@@ -83,6 +84,9 @@ public class Worker extends Person {
         if(counter==1)
         return true;
         return false;
+    }
+    public void printWorker(){
+        System.out.println("userName: "+this.getUser_name()+" password: "+this.getPassword()+" first name: "+this.getFirst_name());
     }
 
 }
