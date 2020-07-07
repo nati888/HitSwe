@@ -12,6 +12,13 @@ public class UpdateWorkerRepository {
         return Instance;
     }
 
+    public Object[] getworker(String ID)
+    {
+        Workers worker_list=Workers.getMySingelton();
+        Worker worker=worker_list.searchingWorkerById(ID);
+        return new Object[] {worker.getLast_name(), worker.getFirst_name(),worker.getIDperson(),worker.getMail(),worker.getDepartment_ID(),worker.getJob_ID(),worker.getExperience(),worker.getBase_Salary(),worker.getUser_name(),worker.getPassword()};
+    }
+
     public String updateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password){
         Workers worker_list=Workers.getMySingelton();
         Worker worker1=worker_list.searchingWorkerById(ID);

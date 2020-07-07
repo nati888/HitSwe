@@ -22,6 +22,11 @@ public class UpdateWorkerController {
             throw new AlreadyExistException("ID" +ID +"is not exist" );
         return true;
     }
+
+    public Object[] getWorker(String ID)  {
+        return UpdateWorker.getworker(ID);
+    }
+
     public boolean UpdateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password)  {
 
         if(UpdateWorker.updateWorker(last_name,first_name,ID, mail,department_id, Job_ID, experience, base_salary , user_name, password)==null)
