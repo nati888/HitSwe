@@ -1,9 +1,9 @@
-/*package Controller;
+package Controller;
 
 import Model.*;
 
-        import java.io.IOException;
-        import java.util.ArrayList;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class DeleteWorkerController {
@@ -32,5 +32,3 @@ public class DeleteWorkerController {
     }
 
 }
-
-*/

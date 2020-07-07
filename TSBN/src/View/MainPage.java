@@ -12,7 +12,7 @@ public class MainPage extends JFrame {
         private JButton addWorkerButton;
         private JButton deleteWorkerButton;
         private JButton calculateSalaryButton;
-        private JButton createReportButton;
+        private JButton UpdateWorkerPageButton;
         private JButton findWorkerButton;
 
         public static void main(String[] args) {
@@ -92,15 +92,18 @@ public class MainPage extends JFrame {
             });
             panel.add(calculateSalaryButton);
 
-            createReportButton=new JButton("Create report");
-            createReportButton.setBounds(225,250,150,25);
-            createReportButton.addActionListener(new ActionListener() {
+            UpdateWorkerPageButton=new JButton("Update Worker");
+            UpdateWorkerPageButton.setBounds(225,250,150,25);
+            UpdateWorkerPageButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    UpdateWorkerPage view=new UpdateWorkerPage();
+                    dispose();
+                    view.setVisible(true);
 
                 }
             });
-            panel.add(createReportButton);
+            panel.add(UpdateWorkerPageButton);
 
 
 

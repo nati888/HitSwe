@@ -58,6 +58,10 @@ public class Worker extends Person {
     void addAssessment(String assessment1){
         assessment.add( assessment1);
     }
+    void changeUserName(String user_name_new) {
+        this.password = user_name_new;
+    }
+
     boolean changePassword(String new_pass) {
         if (new_pass.length() > 8) {
             this.password = new_pass;

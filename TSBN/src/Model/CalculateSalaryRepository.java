@@ -12,12 +12,11 @@ public class CalculateSalaryRepository   {
         return Instance;
     }
 
-    public Object[] checkValidId(String ID)
+    public boolean checkValidId(String ID)
     {
-        boolean isValidId = true;
         if(worker_list.searchingWorkerById(ID)==null)
-            isValidId=false;
-        return new Object[] {isValidId};
+            return false;
+        return true;
     }
 
 
