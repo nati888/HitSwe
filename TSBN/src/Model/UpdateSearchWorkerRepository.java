@@ -48,8 +48,7 @@ public class UpdateSearchWorkerRepository {
         worker1.changeSalary(Float.parseFloat(base_salary));
         worker1.changePassword(password);
         worker1.changeUserName(user_name);
+        File.fileWrite();
         return UUID.randomUUID().toString();
-
-
     }
 }

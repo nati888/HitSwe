@@ -13,7 +13,7 @@ public class UpdateWorkerPage  extends JFrame {
     private JPanel panel;
     private JLabel userLabel;
     private JTextField userText;
-    private JButton button;
+    private JButton searchButton;
 
     private JTextField lastName;
     private JLabel lastNameLabel;
@@ -39,6 +39,7 @@ public class UpdateWorkerPage  extends JFrame {
     private JTextField passwordField;
 
     private  JButton updateButton;
+    private  JButton backButton;
 
     private UpdateSearchWorkerController controller= UpdateSearchWorkerController.getMySingelton();
 
@@ -59,7 +60,7 @@ public class UpdateWorkerPage  extends JFrame {
     public UpdateWorkerPage(){
         this.setTitle("TSBN inc.");                                      //Frame Title
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                 //Frame closing setup
-        setBounds(600,300,600,400);                 //Frame size
+        setBounds(400,100, 500, 500);                 //Frame size
         panel =new JPanel();
         userLabel=new JLabel("Enter worker's ID:");
         userLabel.setBounds(10,20,120,25);
@@ -69,6 +70,7 @@ public class UpdateWorkerPage  extends JFrame {
         lastNameLabel=new JLabel("Last Name: ");
         lastNameLabel.setBounds(10,60,80,25);
         panel.add(lastNameLabel);
+
         lastNameField=new JTextField();
         lastNameField.setBounds(130,60,165,25);
         lastNameField.setEditable(false);
@@ -77,6 +79,7 @@ public class UpdateWorkerPage  extends JFrame {
         firstNameLabel=new JLabel("First Name: ");
         firstNameLabel.setBounds(10,90,80,25);
         panel.add(firstNameLabel);
+
         firstNameField=new JTextField();
         firstNameField.setBounds(130,90,165,25);
         firstNameField.setEditable(false);
@@ -85,6 +88,7 @@ public class UpdateWorkerPage  extends JFrame {
         IDLAbel=new JLabel("ID: ");
         IDLAbel.setBounds(10,120,80,25);
         panel.add(IDLAbel);
+
         IDField=new JTextField();
         IDField.setBounds(130,120,165,25);
         IDField.setEditable(false);
@@ -93,6 +97,7 @@ public class UpdateWorkerPage  extends JFrame {
         mailLabel=new JLabel("Mail: ");
         mailLabel.setBounds(10,150,80,25);
         panel.add(mailLabel);
+
         mailField=new JTextField();
         mailField.setBounds(130,150,165,25);
         panel.add(mailField);
@@ -100,6 +105,7 @@ public class UpdateWorkerPage  extends JFrame {
         departmentLabel=new JLabel("Departemnt ID: ");
         departmentLabel.setBounds(10,180,500,25);
         panel.add(departmentLabel);
+
         departmentField=new JTextField();
         departmentField.setBounds(130,180,165,25);
         panel.add(departmentField);
@@ -107,6 +113,7 @@ public class UpdateWorkerPage  extends JFrame {
         jobLabel=new JLabel("Job ID: ");
         jobLabel.setBounds(10,210,80,25);
         panel.add(jobLabel);
+
         jobField=new JTextField();
         jobField.setBounds(130,210,165,25);
         panel.add(jobField);
@@ -114,6 +121,7 @@ public class UpdateWorkerPage  extends JFrame {
         experienceLabel=new JLabel("Experience: ");
         experienceLabel.setBounds(10,240,500,25);
         panel.add(experienceLabel);
+
         experienceField=new JTextField();
         experienceField.setBounds(130,240,165,25);
         panel.add(experienceField);
@@ -121,6 +129,7 @@ public class UpdateWorkerPage  extends JFrame {
         baseSalaryLabel=new JLabel("Base Salary: ");
         baseSalaryLabel.setBounds(10,270,80,25);
         panel.add(baseSalaryLabel);
+
         baseSalaryField=new JTextField();
         baseSalaryField.setBounds(130,270,165,25);
         panel.add(baseSalaryField);
@@ -128,6 +137,7 @@ public class UpdateWorkerPage  extends JFrame {
         userNameLabel=new JLabel("User Name: ");
         userNameLabel.setBounds(10,300,80,25);
         panel.add(userNameLabel);
+
         userNameField=new JTextField();
         userNameField.setBounds(130,300,165,25);
         panel.add(userNameField);
@@ -135,25 +145,20 @@ public class UpdateWorkerPage  extends JFrame {
         passwordLabel=new JLabel("Password: ");
         passwordLabel.setBounds(10,330,80,25);
         panel.add(passwordLabel);
+
         passwordField=new JTextField();
         passwordField.setBounds(130,330,165,25);
         panel.add(passwordField);
-
-
-
-        button=new JButton("Search");
-        button.setBounds(350,20,120,25);
-
-        updateButton=new JButton("Update");
-        updateButton.setBounds(350,330,120,25);
 
         userText=new JTextField();
         userText.setBounds(130,20,165,25);
         panel.add(userText);
 
+        updateButton=new JButton("Update");
+        updateButton.setBounds(350,330,120,25);
         updateButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {    //
                 boolean success = false;
                 try {
                     success = controller.UpdateWorker(lastNameField.getText() ,firstNameField.getText(),IDField.getText(), mailField.getText(),departmentField.getText(),jobField.getText(), experienceField.getText(),baseSalaryField.getText(), userNameField.getText(),passwordField.getText());
@@ -161,38 +166,47 @@ public class UpdateWorkerPage  extends JFrame {
                     e1.printStackTrace();
                 }
                 checkUpdate(success);
-
             }
         });
-        button.addActionListener(new ActionListener() {
+        panel.add(updateButton);
+
+        searchButton=new JButton("Search");
+        searchButton.setBounds(350,20,120,25);
+        searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean success = false;
-                try {
+                try {       //checks if worker ID is valid
                     success = controller.checkID(userText.getText());
                 } catch (AlreadyExistException alreadyExistException) {
                     alreadyExistException.printStackTrace();
                 }
                 checkID(success,userText.getText());
-
             }
         });
-        panel.add(button);
+        panel.add(searchButton);
 
-        panel.add(updateButton);
-
-
-        setContentPane(panel);
+        backButton=new JButton("Back");
+        backButton.setBounds(320,420,150,25);
+        backButton.addActionListener(new ActionListener() {      //back button returns the user to main page
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPage view=new MainPage();
+                dispose();
+                view.setVisible(true);
+            }
+        });
+        panel.add(backButton);
 
         GroupLayout layout=new GroupLayout(panel);
         panel.setLayout(layout);
-
+        setContentPane(panel);
     }
     public void checkID(boolean isValidId,String id) {
         if (!isValidId) {
             JOptionPane.showMessageDialog(null, "ID " + id + " is not found");
         } else {
-            Object[] worker = controller.getWorker(userText.getText());
+            Object[] worker = controller.getWorker(userText.getText()); //update worker
             lastNameField.setText((String) worker[0]);
             firstNameField.setText((String) worker[1]);
             IDField.setText(String.valueOf(worker[2]));
@@ -206,7 +220,7 @@ public class UpdateWorkerPage  extends JFrame {
         }
     }
     public void checkUpdate(boolean isUpdate) {
-        if (!isUpdate) {
+        if (!isUpdate) {    //if update was successful prints success and moves to main page
             JOptionPane.showMessageDialog(null, "Invalid paramters,please check again" );
             Object[] worker = controller.getWorker(userText.getText());
             lastNameField.setText((String) worker[0]);
@@ -225,6 +239,5 @@ public class UpdateWorkerPage  extends JFrame {
             dispose();
             view.setVisible(true);
         }
-
     }
 }

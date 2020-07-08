@@ -1,11 +1,22 @@
 package Model;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class Worker extends Person {
     int NUM_WORKER = 1;
 
-    public Worker(String last_name, String first_name, int ID, String mail,int department_id, int Job_ID, float experience, float base_salary,String user_name, String password) {
+    private int num_Worker;
+    private int department_ID;
+    private double experience;
+    private double base_Salary;
+    private double hours;
+    private ArrayList<String> assessment;
+    private String user_name;
+    private String password;
+    private int job_ID;
+  
+      public Worker(String last_name, String first_name, int ID, String mail,int department_id, int Job_ID, float experience, float base_salary,String user_name, String password) {
         super(last_name, first_name,ID,mail);
         this.num_Worker = NUM_WORKER++;
         this.department_ID = department_id;
@@ -17,15 +28,6 @@ public class Worker extends Person {
         this.user_name=user_name;
         this.password = password;
     }
-    private int num_Worker;
-    private int department_ID;
-    private double experience;
-    private double base_Salary;
-    private double hours;
-    private ArrayList<String> assessment;
-    private String user_name;
-    private String password;
-    private int job_ID;
 
     public int getNum_Worker() { return num_Worker; }
     public int getDepartment_ID() { return department_ID; }
@@ -57,7 +59,6 @@ public class Worker extends Person {
     }
     public void changePassword(String new_pass) {
         this.password=new_pass;
-
     }
     public boolean CheckEmail() {
         int counter=0, i=0;
@@ -92,8 +93,8 @@ public class Worker extends Person {
             return true;
         return false;
     }
+    public void printWorker(){
+        System.out.println("userName: "+this.getUser_name()+" password: "+this.getPassword()+" first name: "+this.getFirst_name());
+    }
 }
-
-
-
 

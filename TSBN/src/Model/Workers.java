@@ -2,12 +2,14 @@ package Model;
 
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
     public class Workers {
     private static Workers Instance=new Workers();
     private static ArrayList<Worker> worker_List=new ArrayList<Worker>();
-    private Workers() { }
+    private Workers() {
+    }
 
     public static Workers getMySingelton(){
         return Instance;
@@ -43,22 +45,13 @@ import java.util.ArrayList;
     }
     public Boolean SearchingWorkerUserIdBool(String user_name, int id){
         Workers worker_list=Workers.getMySingelton();
-//        Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
-//        worker_list.addWorker(worker);
-//        worker.setHours(5);
-      //  System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name) &&(worker_list.getWorker_i(i).getIDperson()!=id) )
                 return true;
         return false;
     }
-
         public Boolean SearchingWorkerBool(String user_name){
             Workers worker_list=Workers.getMySingelton();
-            Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
-            worker_list.addWorker(worker);
-            worker.setHours(5);
-            System.out.println(worker_list.getWorker_i(0).getJob_ID());
             for (int i = 0; i < worker_list.getSize(); i++)
                 if (worker_list.getWorker_i(i).getUser_name().equals(user_name) )
                     return true;
@@ -76,4 +69,4 @@ import java.util.ArrayList;
         Worker worker=searchingWorker(ID);
         return worker.calculateSalary();
     }
-    }
+  }

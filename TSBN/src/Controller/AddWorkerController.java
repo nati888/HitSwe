@@ -17,6 +17,7 @@ public class AddWorkerController {
         throws AlreadyExistException {
 
         if (last_name.trim().equals("") || first_name.trim().equals("") || ID.trim().equals("") || mail.trim().equals("") || department_id.trim().equals("") || Job_ID.trim().equals("") || experience.trim().equals("") || base_salary.trim().equals("") || user_name.trim().equals("") || password.trim().equals(""))//check if one of the details entered is empty
+
             return false;
 
         String session = add_worker_repository.addWorker(last_name, first_name, ID, mail, department_id, Job_ID, experience, base_salary, user_name, password);

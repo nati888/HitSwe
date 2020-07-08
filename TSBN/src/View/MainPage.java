@@ -39,17 +39,16 @@ public class MainPage extends JFrame {
 
             introText=new JLabel("Hello",JLabel.CENTER);
             introText.setVerticalAlignment(JLabel.TOP);
-            introText.setFont(new Font("Verdana", Font.ITALIC, 50));
+            introText.setFont(new Font("Verdana", Font.ITALIC, 50));//Title
             introText.setPreferredSize(new Dimension(250, 100));
             introText.setBounds(130,20,200,200);
             panel.add(introText);
 
-            addWorkerButton=new JButton("Add");
+            addWorkerButton=new JButton("Add");//add new worker button switch to add worker page
             addWorkerButton.setBounds(50,200,100,25);
             addWorkerButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //  JOptionPane.showMessageDialog(null,"","Success",1);
                     AddWorkerPage view=new AddWorkerPage();
                     dispose();
                     view.setVisible(true);
@@ -57,7 +56,7 @@ public class MainPage extends JFrame {
             });
             panel.add(addWorkerButton);
 
-            deleteWorkerButton=new JButton("Delete");
+            deleteWorkerButton=new JButton("Delete");// delete worker button switch to delete page
             deleteWorkerButton.setBounds(175,200,100,25);
             deleteWorkerButton.addActionListener(new ActionListener() {
                 @Override
@@ -70,7 +69,7 @@ public class MainPage extends JFrame {
             });
             panel.add(deleteWorkerButton);
 
-            findWorkerButton=new JButton("Find Worker");
+            findWorkerButton=new JButton("Find Worker");//find worker button switch to find worker page
             findWorkerButton.setBounds(300,200,150,25);
             findWorkerButton.addActionListener(new ActionListener() {
                 @Override
@@ -82,7 +81,7 @@ public class MainPage extends JFrame {
             });
             panel.add(findWorkerButton);
 
-            calculateSalaryButton=new JButton("Calculate salary");
+            calculateSalaryButton=new JButton("Calculate salary");// calculate salary button switch to calculate salary page
             calculateSalaryButton.setBounds(50,250,150,25);
             calculateSalaryButton.addActionListener(new ActionListener() {
                 @Override
@@ -93,9 +92,9 @@ public class MainPage extends JFrame {
 
                 }
             });
-
             panel.add(calculateSalaryButton);
-            logOutButton=new JButton("Log Out");
+
+            logOutButton=new JButton("Log Out"); //log out button switch to login page
             logOutButton.setBounds(300,400,150,25);
             logOutButton.addActionListener(new ActionListener() {
                 @Override
@@ -107,7 +106,8 @@ public class MainPage extends JFrame {
                 }
             });
             panel.add(logOutButton);
-            UpdateWorkerPageButton=new JButton("Update Worker");
+
+            UpdateWorkerPageButton=new JButton("Update Worker"); // update info button switch to update page
             UpdateWorkerPageButton.setBounds(225,250,150,25);
             UpdateWorkerPageButton.addActionListener(new ActionListener() {
                 @Override
@@ -120,11 +120,8 @@ public class MainPage extends JFrame {
             });
             panel.add(UpdateWorkerPageButton);
 
-
-
-            setContentPane(panel);
-            GroupLayout layout=new GroupLayout(panel);
-            panel.setLayout(layout);
-
+            GroupLayout layout=new GroupLayout(panel); //declares the layout
+            panel.setLayout(layout);    //puts the layout on panel
+            setContentPane(panel); //prints panel
         }
 }

@@ -34,7 +34,8 @@ public class AddWorkerPage extends JFrame {
         private JTextField passwordField;
         private JTextField experienceField;
         private JTextField baseSalaryField;
-        private  JButton submitButton;
+        private JButton submitButton;
+        private JButton backButton;
         private AddWorkerController controller= AddWorkerController.getMySingelton();
 
         public static void main(String[] args) {
@@ -54,7 +55,7 @@ public class AddWorkerPage extends JFrame {
 
         {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setBounds(400, 100, 500, 500);
+            setBounds(400,100, 500, 500);
             panel = new JPanel();
             panel.setBorder(new EmptyBorder(5, 5, 5, 5));
             setTitle("TSBN .inc");
@@ -133,8 +134,7 @@ public class AddWorkerPage extends JFrame {
             submitButton.setBounds(50,385,125,25);
             submitButton.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
-//                   observableView.notifyObs(new Object[]{lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText()});
+                public void actionPerformed(ActionEvent e) {    //login button calls controller and recieves boolean back
                     boolean success = false;
                     try {
                         success = controller.add(lastNameField.getText(),firstNameField.getText(),IDField.getText(),mailField.getText(),departmentField.getText(),jobField.getText(),experienceField.getText(),baseSalaryField.getText(),userNameField.getText(),passwordField.getText());
@@ -142,21 +142,34 @@ public class AddWorkerPage extends JFrame {
                         alreadyExistException.printStackTrace();
                     }
 
-                    if (success) {
+                    if (success) {                          // if success is true throws success pop up and moves to main page
                         JOptionPane.showMessageDialog(null, "Worker has been added successfully! ", "Success", 1);
                         MainPage view = new MainPage();
                         dispose();
                         view.setVisible(true);
                     }
-                    else{
+                    else{                                   //if success is false throws invalid pop up
                         JOptionPane.showMessageDialog(null,"Invalid!");
                     }
                 }
             });
             panel.add(submitButton);
-            setContentPane(panel);
+
+            backButton=new JButton("Back");
+            backButton.setBounds(320,420,150,25);
+            backButton.addActionListener(new ActionListener() {     //back button returns the user to main page
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    MainPage view=new MainPage();
+                    dispose();
+                    view.setVisible(true);
+
+                }
+            });
+            panel.add(backButton);
+
             GroupLayout layout=new GroupLayout(panel);
             panel.setLayout(layout);
-
+            setContentPane(panel);
         }
 }

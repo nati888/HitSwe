@@ -34,13 +34,10 @@ public class LoginPage  extends JFrame {
             });
         }
         public LoginPage(){
-            //observableView.addObserver(/*controller*/);
             this.setTitle("TSBN inc.");                                      //Frame Title
-            //this.setSize(1000,400);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                 //Frame closing setup
-            setBounds(600,300,600,400);                 //Frame size
+            setBounds(400,100,400,300);                 //Frame size
             panel =new JPanel();
-            //panel.setBorder(new EmptyBorder(5,5,5,5));  //inner panel borders
             userLabel=new JLabel("User :");
             userLabel.setBounds(10,20,80,25);
             panel.add(userLabel);
@@ -62,32 +59,29 @@ public class LoginPage  extends JFrame {
             button.setBounds(50,100,100,25);
             button.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(ActionEvent e) {        //login button
                     boolean success = false;
-                    try {
+                    try {      //calls controller with user name and password and recieves boolean if user is valid
                         success = controller.login(userText.getText(), new String(passwordField.getPassword()));
-                    } catch (AlreadyExistException alreadyExistException) {
-                        alreadyExistException.printStackTrace();
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
                     }
-                    checkUser(success,userText.getText());
-
+                    checkUser(success,userText.getText());      //local function checks if user is valid if true switch to main page else throws pop up with invalid user/password
                 }
             });
             panel.add(button);
 
-            setContentPane(panel);
-
             GroupLayout layout=new GroupLayout(panel);
             panel.setLayout(layout);
-
+            setContentPane(panel);
         }
         public void checkUser(boolean isValidUser,String userName)
         {
-            if(!isValidUser){
+            if(!isValidUser){           //if user is invalid throws pop up with invalid user or password
                 JOptionPane.showMessageDialog(null,"User name or password is incorrect");
             }
             else
-            {
+            {                           //if user is valid throw a welcome pop up and moves to main page
                 JOptionPane.showMessageDialog(null,"Welcome "+userName,"Success",1);
                 MainPage view=new View.MainPage();
                 dispose();

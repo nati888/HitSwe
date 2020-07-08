@@ -36,6 +36,7 @@ public class AddWorkerRepository {
         if (worker.checkID(ID)) //check if the user name that wants to enter is already exist
             throw new AlreadyExistException("The ID must be 9 letters");
         worker_list.addWorker(worker);
+        File.fileWrite();
         return UUID.randomUUID().toString();
     }
 

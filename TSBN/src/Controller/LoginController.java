@@ -6,7 +6,7 @@ import Model.*;
 public class LoginController {
     Workers worker_list=Workers.getMySingelton();
     private static LoginController Instance;
-    private LoginService login_Service=LoginService.getMySingelton();
+    private LoginRepository login_Repository=LoginRepository.getMySingelton();
     private LoginController() {
     }
     public static LoginController getMySingelton(){
@@ -15,11 +15,9 @@ public class LoginController {
         return Instance;
     }
     public boolean login(String user_name, String password) throws AlreadyExistException {
-        if (user_name.trim() == " " || user_name == null || password.trim() == " " || password==null ) //check if one of the details entered is empty
-            throw new AlreadyExistException("Username or password must not be null" );
-        if(!worker_list.SearchingWorkerBool(user_name)) //check if exist worker whit the user name that entered in the worker list
-            throw new AlreadyExistException("Username not exist or Username or password null" );
-        String session = login_Service.login(user_name, password);
+        if (user_name.trim().equals("") || user_name == null || password.trim().equals("") || password==null ) //check if one of the details entered is empty
+            return false;
+        String session = login_Repository.validateUser(user_name, password);
         if (session != null) {
             System.out.println("Session token: " + session);
             return true;
