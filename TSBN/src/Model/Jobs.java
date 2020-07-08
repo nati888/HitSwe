@@ -8,20 +8,23 @@ public class Jobs {
         private static ArrayList<Job> jobs_list= new ArrayList<Job>();
 
         private Jobs() {
-            Job job1=new Job(1,"Name_1");
-            Job job2=new Job(1,"Name_2");
-            Job job3=new Job(1,"Name_3");
-            Job job4=new Job(1,"Name_4");
-            Job job5=new Job(1,"Name_5");
-            jobs_list.add(job1);
-            jobs_list.add(job2);
-            jobs_list.add(job3);
-            jobs_list.add(job4);
-            jobs_list.add(job5);
+
         }
 
         public static Jobs getMySingelton() {
-            return Instance;
+
+            if(jobs_list.size()==0) {
+                Job job1=new Job(1,"Name_1");
+                Job job2=new Job(2,"Name_2");
+                Job job3=new Job(3,"Name_3");
+                Job job4=new Job(4,"Name_4");
+                Job job5=new Job(5,"Name_5");
+                jobs_list.add(job1);
+                jobs_list.add(job2);
+                jobs_list.add(job3);
+                jobs_list.add(job4);
+                jobs_list.add(job5);
+            }return Instance;
         }
 
        public void addJob(Job new_job) {
@@ -40,12 +43,13 @@ public class Jobs {
         }
 
         public Boolean SearchingJobBool(int ID) {
-            Workers worker_list = Workers.getMySingelton();
-            for (int i = 0; i < worker_list.getSize(); i++)
-                if (jobs_list.get(i).getJob_ID() == ID)
+            Jobs jobs_list = Jobs.getMySingelton();
+            for (int i = 0; i < jobs_list.getSize(); i++)
+                if (jobs_list.getJob_i(i).getJob_ID() == ID)
                     return true;
             return false;
         }
+
         public int getSize() {
             return jobs_list.size();
         }

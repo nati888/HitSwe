@@ -9,7 +9,7 @@ public class Worker extends Person {
         super(last_name, first_name,ID,mail);
         this.num_Worker = NUM_WORKER++;
         this.department_ID = department_id;
-        this.job_ID = job_ID;
+        this.job_ID = Job_ID;
         this.experience = experience;
         this.base_Salary = base_salary;
         this.hours = 0;
@@ -52,13 +52,10 @@ public class Worker extends Person {
     public double calculateSalary(){
         return base_Salary*hours;
     }
-    public void addAssessment(String assessment1){
-        assessment.add( assessment1);
-    }
     public void changeUserName(String user_name_new) {
         this.user_name = user_name_new;
     }
-    void changePassword(String new_pass) {
+    public void changePassword(String new_pass) {
         this.password=new_pass;
 
     }
@@ -95,7 +92,6 @@ public class Worker extends Person {
             return true;
         return false;
     }
-
 }
 
 

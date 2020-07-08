@@ -41,17 +41,29 @@ import java.util.ArrayList;
                 return true;
         return false;
     }
-    public Boolean SearchingWorkerBool(String user_name){
+    public Boolean SearchingWorkerUserIdBool(String user_name, int id){
         Workers worker_list=Workers.getMySingelton();
-        Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
-        worker_list.addWorker(worker);
-        worker.setHours(5);
-        System.out.println(worker_list.getWorker_i(0).getJob_ID());
+//        Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
+//        worker_list.addWorker(worker);
+//        worker.setHours(5);
+      //  System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
-            if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
+            if (worker_list.getWorker_i(i).getUser_name().equals(user_name) &&(worker_list.getWorker_i(i).getIDperson()!=id) )
                 return true;
         return false;
     }
+
+        public Boolean SearchingWorkerBool(String user_name){
+            Workers worker_list=Workers.getMySingelton();
+            Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
+            worker_list.addWorker(worker);
+            worker.setHours(5);
+            System.out.println(worker_list.getWorker_i(0).getJob_ID());
+            for (int i = 0; i < worker_list.getSize(); i++)
+                if (worker_list.getWorker_i(i).getUser_name().equals(user_name) )
+                    return true;
+            return false;
+        }
     public int getSize(){
         return worker_List.size();
     }

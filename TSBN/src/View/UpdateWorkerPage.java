@@ -111,7 +111,7 @@ public class UpdateWorkerPage  extends JFrame {
         jobField.setBounds(130,210,165,25);
         panel.add(jobField);
 
-        experienceLabel=new JLabel("Experience ID: ");
+        experienceLabel=new JLabel("Experience: ");
         experienceLabel.setBounds(10,240,500,25);
         panel.add(experienceLabel);
         experienceField=new JTextField();
@@ -197,8 +197,8 @@ public class UpdateWorkerPage  extends JFrame {
             firstNameField.setText((String) worker[1]);
             IDField.setText(String.valueOf(worker[2]));
             mailField.setText((String) worker[3]);
-            departmentField.setText((String) worker[4]);
-            jobField.setText((String) worker[5]);
+            departmentField.setText(String.valueOf(worker[4]));
+            jobField.setText(String.valueOf(worker[5]));
             experienceField.setText(String.valueOf(worker[6]));
             baseSalaryField.setText(String.valueOf(worker[7]));
             userNameField.setText((String) worker[8]);
@@ -208,6 +208,17 @@ public class UpdateWorkerPage  extends JFrame {
     public void checkUpdate(boolean isUpdate) {
         if (!isUpdate) {
             JOptionPane.showMessageDialog(null, "Invalid paramters,please check again" );
+            Object[] worker = controller.getWorker(userText.getText());
+            lastNameField.setText((String) worker[0]);
+            firstNameField.setText((String) worker[1]);
+            IDField.setText(String.valueOf(worker[2]));
+            mailField.setText((String) worker[3]);
+            departmentField.setText(String.valueOf(worker[4]));
+            jobField.setText(String.valueOf(worker[5]));
+            experienceField.setText(String.valueOf(worker[6]));
+            baseSalaryField.setText(String.valueOf(worker[7]));
+            userNameField.setText((String) worker[8]);
+            passwordField.setText((String) worker[9]);
         } else {
             JOptionPane.showMessageDialog(null,"Success!","Success",1);
             MainPage view=new View.MainPage();
