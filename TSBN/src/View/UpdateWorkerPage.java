@@ -197,8 +197,8 @@ public class UpdateWorkerPage  extends JFrame {
             firstNameField.setText((String) worker[1]);
             IDField.setText(String.valueOf(worker[2]));
             mailField.setText((String) worker[3]);
-            departmentField.setText((String) worker[4]);
-            jobField.setText((String) worker[5]);
+            departmentField.setText(String.valueOf(worker[4]));
+            jobField.setText(String.valueOf(worker[5]));
             experienceField.setText(String.valueOf(worker[6]));
             baseSalaryField.setText(String.valueOf(worker[7]));
             userNameField.setText((String) worker[8]);

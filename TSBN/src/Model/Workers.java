@@ -8,7 +8,8 @@ import java.util.ArrayList;
     public class Workers {
     private static Workers Instance=new Workers();
     private static ArrayList<Worker> worker_List=new ArrayList<Worker>();
-    private Workers() { }
+    private Workers() {
+    }
 
     public static Workers getMySingelton(){
         return Instance;
@@ -42,9 +43,7 @@ import java.util.ArrayList;
     }
     public Boolean SearchingWorkerBool(String user_name){
         Workers worker_list=Workers.getMySingelton();
-        Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,1,105,52,"sapir","irani");
-        worker_list.addWorker(worker);
-        worker.setHours(5);
+        File.fileWrite();
         System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name))

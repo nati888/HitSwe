@@ -16,7 +16,7 @@ public class UpdateSearchWorkerController {
     }
 
     public boolean checkID(String ID) throws AlreadyExistException {
-        if (ID.equals("")) //check if its empty
+        if (ID.trim().equals("")) //check if its empty
             return false;
         if(worker_list.searchingWorkerById(ID)==null)//check if exist worker whit the user name that entered in the worker list
             throw new AlreadyExistException("ID" +ID +"is not exist" );
