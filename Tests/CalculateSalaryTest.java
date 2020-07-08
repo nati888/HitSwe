@@ -21,6 +21,6 @@ public class CalculateSalaryTest {
         worker1.setHours(200);
         worker1.changeSalary(100);
         Assertions.assertEquals(worker1.calculateSalary(),20000);
-
+        CalculateSalaryRepository calculateSalaryRepository = CalculateSalaryRepository.getMySingelton();
     }
 }

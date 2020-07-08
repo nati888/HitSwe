@@ -13,16 +13,15 @@ import java.util.ArrayList;
         return Instance;
     }
 
+
     public void addWorker(Worker new_worker){
         worker_List.add(new_worker);
     }
-    public void removeWorker(Worker remove_worker) throws IOException {
-        worker_List.remove(remove_worker);
 
-        for(int i=0;i<worker_List.size();i++){
-            Worker worker=this.worker_List.get(i);
+  public  void removeWorker(Worker remove_worker) throws IOException {
+        worker_List.remove(remove_worker);
         }
-}
+
     public Worker searchingWorkerById(String ID){
         for (int i=0;i<this.worker_List.size();i++)
             if(worker_List.get(i).getIDperson()==Integer.parseInt(ID))
@@ -47,6 +46,7 @@ import java.util.ArrayList;
         Worker worker= new WorkerBuilder().Last_name("irani").First_name("sapir").ID(315424283).Mail("sapir@gmail.com").Department_id(5).Job_ID(2).Experience(105).Base_salary(52).User_name("sapir").Password("irani").createWorker();
         worker_list.addWorker(worker);
         worker.setHours(5);
+        System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
                 return true;
@@ -64,4 +64,4 @@ import java.util.ArrayList;
         Worker worker=searchingWorker(ID);
         return worker.calculateSalary();
     }
-}
+    }

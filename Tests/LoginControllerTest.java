@@ -40,7 +40,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void CheckIfUsernameIsValid() throws AlreadyExistException { //test for login failed when password and username is empty//
+    public void CheckIfUsernameIsValid() throws AlreadyExistException { //Checks if user name and password match//
         Workers worker_list= Workers.getMySingelton();
         Worker worker1 = new Worker("lalum","tal",313,"tal@",1,1 ,1,1,"tal","111");
         worker_list.addWorker(worker1);

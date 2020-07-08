@@ -6,20 +6,17 @@ public class Worker extends Person {
     int NUM_WORKER = 1;
 
     public Worker(String last_name, String first_name, int ID, String mail,int department_id, int Job_ID, float experience, float base_salary,String user_name, String password) {
-        super(last_name, first_name, ID,mail);
+        super(last_name, first_name,ID,mail);
         this.num_Worker = NUM_WORKER++;
         this.department_ID = department_id;
+        this.job_ID = job_ID;
         this.experience = experience;
         this.base_Salary = base_salary;
         this.hours = 0;
         this.assessment = new ArrayList<String>();
         this.user_name=user_name;
         this.password = password;
-        this.job_ID = job_ID;
     }
-
-
-
     private int num_Worker;
     private int department_ID;
     private double experience;
@@ -59,14 +56,11 @@ public class Worker extends Person {
         assessment.add( assessment1);
     }
     public void changeUserName(String user_name_new) {
-        this.password = user_name_new;
+        this.user_name = user_name_new;
     }
-    boolean changePassword(String new_pass) {
-        if (new_pass.length() > 8) {
-            this.password = new_pass;
-            return true;
-        }
-        return false;
+    void changePassword(String new_pass) {
+        this.password=new_pass;
+
     }
     public boolean CheckEmail() {
         int counter=0, i=0;
@@ -82,6 +76,26 @@ public class Worker extends Person {
         return true;
         return false;
     }
+    public boolean CheckEmail(String mail) {
+        int counter=0, i=0;
+        if(mail.charAt(i)=='@')
+            return false;
+        for (i=1;i<mail.length();i++) {
+            if (this.getMail().charAt(i) == '@')
+                counter++;
+            if (counter > 1)
+                return false;
+        }
+        if(counter==1)
+            return true;
+        return false;
+    }
+    public boolean checkID(String id) {
+        if(id.length() == 9)
+            return true;
+        return false;
+    }
+
 }
 
 
