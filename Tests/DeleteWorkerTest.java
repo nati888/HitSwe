@@ -23,7 +23,7 @@ public class DeleteWorkerTest  {
         worker_list.addWorker(worker1);
         worker_list.addWorker(worker2);
         worker_list.removeWorker(worker1);
-        Assertions.assertFalse(worker_list.SearchingWorkerBool("tal1"));
+       Assertions.assertFalse(worker_list.SearchingWorkerBool("tal1"));
         worker_list.removeWorker(worker2);
         Assertions.assertFalse(worker_list.SearchingWorkerBool("tal1"));
         Assertions.assertFalse(worker_list.SearchingWorkerBool( 313));

@@ -10,16 +10,6 @@ public class LoginControllerTest {
     LoginController loginController = LoginController.getMySingelton();
 
     @Test
-    public void loginFailedWhenPasswordIsEmpty(){ //test fot login failed when password is empty//
-        try {
-            loginController.login("tal", "  ");
-        Assertions.fail("Login success but should failed");
-        } catch (AlreadyExistException e) {
-            Assertions.assertEquals("Username or password must not be null", e.getMessage());
-        }
-    }
-
-    @Test
     public void loginFailedWhenUserIsEmpty() { //test for login failed when username is empty//
         try {
             loginController.login("  ", "111");
