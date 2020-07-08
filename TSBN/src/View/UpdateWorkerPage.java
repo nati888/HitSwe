@@ -39,6 +39,7 @@ public class UpdateWorkerPage  extends JFrame {
     private JTextField passwordField;
 
     private  JButton updateButton;
+    private  JButton backButton;
 
     private UpdateSearchWorkerController controller= UpdateSearchWorkerController.getMySingelton();
 
@@ -180,6 +181,20 @@ public class UpdateWorkerPage  extends JFrame {
         panel.add(button);
 
         panel.add(updateButton);
+
+        backButton=new JButton("Back");
+        backButton.setBounds(320,420,150,25);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPage view=new MainPage();
+                dispose();
+                view.setVisible(true);
+
+            }
+        });
+        panel.add(backButton);
+
 
 
         setContentPane(panel);

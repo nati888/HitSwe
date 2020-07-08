@@ -15,6 +15,7 @@ public class CalculateSalaryPage  extends JFrame {
     private JTextField userText;
     private JButton button;
     private JTextField salaryField;
+    private JButton backButton;
 
     private CalculateSalaryController controller= CalculateSalaryController.getMySingelton();
 
@@ -70,6 +71,19 @@ public class CalculateSalaryPage  extends JFrame {
             }
         });
         panel.add(button);
+
+        backButton=new JButton("Back");
+        backButton.setBounds(220,220,150,25);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPage view=new MainPage();
+                dispose();
+                view.setVisible(true);
+
+            }
+        });
+        panel.add(backButton);
 
         setContentPane(panel);
 

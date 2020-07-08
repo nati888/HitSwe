@@ -16,6 +16,7 @@ public class DeletePage extends JFrame {
     private JLabel userIDLabel;
     private JTextField userIDField;
     private JButton deletebutton;
+    private JButton backButton;
     private DeleteWorkerController controller= DeleteWorkerController.getMySingelton();
 
     public static void main(String[] args) {
@@ -57,10 +58,22 @@ public class DeletePage extends JFrame {
                     alreadyExistException.printStackTrace();
                 }
                 checkUser(successDelete,userIDField.getText());
-
             }
         });
         panel.add(deletebutton);
+
+        backButton=new JButton("Back");
+        backButton.setBounds(220,220,150,25);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPage view=new MainPage();
+                dispose();
+                view.setVisible(true);
+
+            }
+        });
+        panel.add(backButton);
 
 
         setContentPane(panel);

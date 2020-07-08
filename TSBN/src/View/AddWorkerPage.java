@@ -34,7 +34,8 @@ public class AddWorkerPage extends JFrame {
         private JTextField passwordField;
         private JTextField experienceField;
         private JTextField baseSalaryField;
-        private  JButton submitButton;
+        private JButton submitButton;
+        private JButton backButton;
         private AddWorkerController controller= AddWorkerController.getMySingelton();
 
         public static void main(String[] args) {
@@ -154,6 +155,20 @@ public class AddWorkerPage extends JFrame {
                 }
             });
             panel.add(submitButton);
+
+            backButton=new JButton("Back");
+            backButton.setBounds(320,420,150,25);
+            backButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    MainPage view=new MainPage();
+                    dispose();
+                    view.setVisible(true);
+
+                }
+            });
+            panel.add(backButton);
+
             setContentPane(panel);
             GroupLayout layout=new GroupLayout(panel);
             panel.setLayout(layout);

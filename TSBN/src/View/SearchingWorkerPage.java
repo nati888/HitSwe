@@ -184,7 +184,6 @@ public class SearchingWorkerPage  extends JFrame {
 
         panel.add(back);
 
-
         setContentPane(panel);
 
         GroupLayout layout = new GroupLayout(panel);
