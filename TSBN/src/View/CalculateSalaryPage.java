@@ -80,7 +80,7 @@ public class CalculateSalaryPage  extends JFrame {
     public void checkID(boolean isValidId,String id)
     {
         if(!isValidId){
-            JOptionPane.showMessageDialog(null,"ID "+ id+" is not found");
+            JOptionPane.showMessageDialog(null,"ID "+ id +" is not found");
         }
         else
         {

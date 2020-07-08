@@ -9,10 +9,10 @@ public class Departments {
 
     private Departments() {
         Department department1=new Department(1,"Name_1");
-        Department department2=new Department(1,"Name_2");
-        Department department3=new Department(1,"Name_3");
-        Department department4=new Department(1,"Name_4");
-        Department department5=new Department(1,"Name_5");
+        Department department2=new Department(2,"Name_2");
+        Department department3=new Department(3,"Name_3");
+        Department department4=new Department(4,"Name_4");
+        Department department5=new Department(5,"Name_5");
         departments_list.add(department1);
         departments_list.add(department2);
         departments_list.add(department3);
