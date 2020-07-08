@@ -82,9 +82,6 @@ public class Worker extends Person {
         return true;
         return false;
     }
-
-
-
 }
 
 

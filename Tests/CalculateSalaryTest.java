@@ -8,8 +8,19 @@ import java.io.IOException;
 public class CalculateSalaryTest {
 
     @Test
-    public void CheckSum(){
-
+    public void CheckTheMul(){
+        Worker worker1 = new Worker("lalum3","tal",313,"tal@",1,1 ,1,50,"tal3","111");
+        worker1.setHours(100);
+        Assertions.assertEquals(worker1.calculateSalary(),5000);
+        worker1.setHours(2);
+        worker1.changeSalary(20);
+        Assertions.assertEquals(worker1.calculateSalary(),40);
+        worker1.setHours(250);
+        worker1.changeSalary(130);
+        Assertions.assertEquals(worker1.calculateSalary(),32500);
+        worker1.setHours(200);
+        worker1.changeSalary(100);
+        Assertions.assertEquals(worker1.calculateSalary(),20000);
 
     }
 }
