@@ -8,20 +8,23 @@ public class Departments {
     private static ArrayList<Department> departments_list= new ArrayList<Department>();
 
     private Departments() {
-        Department department1=new Department(1,"Name_1");
-        Department department2=new Department(1,"Name_2");
-        Department department3=new Department(1,"Name_3");
-        Department department4=new Department(1,"Name_4");
-        Department department5=new Department(1,"Name_5");
-        departments_list.add(department1);
-        departments_list.add(department2);
-        departments_list.add(department3);
-        departments_list.add(department4);
-        departments_list.add(department5);
+
 
     }
 
     public static Departments getMySingelton() {
+        if(departments_list.size()==0){
+            Department department1=new Department(1,"Name_1");
+            Department department2=new Department(2,"Name_2");
+            Department department3=new Department(3,"Name_3");
+            Department department4=new Department(4,"Name_4");
+            Department department5=new Department(5,"Name_5");
+            departments_list.add(department1);
+            departments_list.add(department2);
+            departments_list.add(department3);
+            departments_list.add(department4);
+            departments_list.add(department5);
+        }
         return Instance;
     }
 
@@ -41,9 +44,9 @@ public class Departments {
     }
 
     public Boolean SearchingDepartmentBool(int ID) {
-        Workers worker_list = Workers.getMySingelton();
-        for (int i = 0; i < worker_list.getSize(); i++)
-            if (departments_list.get(i).getID() == ID)
+        Departments departments_list = Departments.getMySingelton();
+        for (int i = 0; i < departments_list.getSize(); i++)
+            if (departments_list.getDepartment_i(i).getID() == ID)
                 return true;
         return false;
     }

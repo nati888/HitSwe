@@ -27,12 +27,11 @@ public class UpdateSearchWorkerController {
         return UpdateWorker.getworker(ID);
     }
 
-    public boolean UpdateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password)  {
+    public boolean UpdateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password) throws AlreadyExistException {
 
         if(UpdateWorker.updateWorker(last_name,first_name,ID, mail,department_id, Job_ID, experience, base_salary , user_name, password)==null)
             return false;
         return true;
-
     }
 }
 

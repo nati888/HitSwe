@@ -15,7 +15,7 @@ public class LoginController {
         return Instance;
     }
     public boolean login(String user_name, String password) throws AlreadyExistException {
-        if (user_name.trim().equals("") || password.trim().equals("")) //check if user name or password is empty
+        if (user_name.trim().equals("") || user_name == null || password.trim().equals("") || password==null ) //check if one of the details entered is empty
             return false;
         String session = login_Repository.validateUser(user_name, password);
         if (session != null) {

@@ -15,9 +15,11 @@ import java.util.ArrayList;
         return Instance;
     }
 
-   public void addWorker(Worker new_worker){
+
+    public void addWorker(Worker new_worker){
         worker_List.add(new_worker);
     }
+
   public  void removeWorker(Worker remove_worker) throws IOException {
         worker_List.remove(remove_worker);
         }
@@ -41,15 +43,20 @@ import java.util.ArrayList;
                 return true;
         return false;
     }
-    public Boolean SearchingWorkerBool(String user_name){
+    public Boolean SearchingWorkerUserIdBool(String user_name, int id){
         Workers worker_list=Workers.getMySingelton();
-        File.fileWrite();
-        System.out.println(worker_list.getWorker_i(0).getJob_ID());
         for (int i = 0; i < worker_list.getSize(); i++)
-            if (worker_list.getWorker_i(i).getUser_name().equals(user_name))
+            if (worker_list.getWorker_i(i).getUser_name().equals(user_name) &&(worker_list.getWorker_i(i).getIDperson()!=id) )
                 return true;
         return false;
     }
+        public Boolean SearchingWorkerBool(String user_name){
+            Workers worker_list=Workers.getMySingelton();
+            for (int i = 0; i < worker_list.getSize(); i++)
+                if (worker_list.getWorker_i(i).getUser_name().equals(user_name) )
+                    return true;
+            return false;
+        }
     public int getSize(){
         return worker_List.size();
     }
@@ -62,4 +69,4 @@ import java.util.ArrayList;
         Worker worker=searchingWorker(ID);
         return worker.calculateSalary();
     }
-}
+  }
