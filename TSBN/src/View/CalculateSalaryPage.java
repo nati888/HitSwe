@@ -34,13 +34,10 @@ public class CalculateSalaryPage  extends JFrame {
         });
     }
     public CalculateSalaryPage(){
-        //observableView.addObserver(/*controller*/);
         this.setTitle("TSBN inc.");                                      //Frame Title
-        //this.setSize(1000,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                 //Frame closing setup
         setBounds(400,100,400,300);                 //Frame size
         panel =new JPanel();
-        //panel.setBorder(new EmptyBorder(5,5,5,5));  //inner panel borders
         userLabel=new JLabel("Enter worker's ID:");
         userLabel.setBounds(10,20,120,25);
         panel.add(userLabel);
@@ -58,15 +55,14 @@ public class CalculateSalaryPage  extends JFrame {
         button.setBounds(50,100,100,25);
         button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                // observableView.notifyObs(new Object[]{userText.getText(), new String(passwordField.getPassword())});
+            public void actionPerformed(ActionEvent e) {    //calculate button sends user ID to controller and recieves boolean back if success
                 boolean success = false;
                 try {
-                    success = controller.checkID(userText.getText());
+                    success = controller.checkID(userText.getText()); //checks if user exist
                 } catch (AlreadyExistException alreadyExistException) {
                     alreadyExistException.printStackTrace();
                 }
-                checkID(success,userText.getText());
+                checkID(success,userText.getText()); //calls local function ,if success is true prints salary
 
             }
         });
@@ -76,31 +72,26 @@ public class CalculateSalaryPage  extends JFrame {
         backButton.setBounds(220,220,150,25);
         backButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {        //back button returns the user to main page
                 MainPage view=new MainPage();
                 dispose();
                 view.setVisible(true);
-
             }
         });
         panel.add(backButton);
 
-        setContentPane(panel);
-
         GroupLayout layout=new GroupLayout(panel);
         panel.setLayout(layout);
-
+        setContentPane(panel);
     }
-    public void checkID(boolean isValidId,String id)
-    {
-        if(!isValidId){
+    public void checkID(boolean isValidId,String id) {
+        if(!isValidId){         //if false throws a pop up ID is not found
             JOptionPane.showMessageDialog(null,"ID "+ id+" is not found");
         }
-        else
+        else                //if true calls controller with ID and recieves calculated salary
         {
             Object [] salary= (controller.CalculateSalary(id));
-            salaryField.setText(String.valueOf(salary[0]));
-
+            salaryField.setText(String.valueOf(salary[0])); //display the calculated salary back to screen
         }
     }
 }

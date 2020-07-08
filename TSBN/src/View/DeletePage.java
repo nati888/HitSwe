@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-
 public class DeletePage extends JFrame {
     private JPanel panel;
     private JLabel userIDLabel;
@@ -43,9 +42,11 @@ public class DeletePage extends JFrame {
         userIDLabel = new JLabel("Enter worker's ID: ");
         userIDLabel.setBounds(10, 20, 120, 25);
         panel.add(userIDLabel);
+
         userIDField = new JTextField();
         userIDField.setBounds(115, 20, 165, 25);
         panel.add(userIDField);
+
         deletebutton = new JButton("Delete");
         deletebutton.setBounds(50, 70, 125, 25);
         deletebutton.addActionListener(new ActionListener() {
@@ -53,11 +54,11 @@ public class DeletePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 boolean successDelete = false;
                 try {
-                    successDelete = controller.delete(userIDField.getText());
+                    successDelete = controller.delete(userIDField.getText());  //calls controller with ID field, deletes worker and recieves boolean
                 } catch (IOException alreadyExistException) {
                     alreadyExistException.printStackTrace();
                 }
-                checkUser(successDelete,userIDField.getText());
+                checkUser(successDelete,userIDField.getText());// local function checks if delete was successful
             }
         });
         panel.add(deletebutton);
@@ -66,28 +67,24 @@ public class DeletePage extends JFrame {
         backButton.setBounds(220,220,150,25);
         backButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {        //back button returns the user to main page
                 MainPage view=new MainPage();
                 dispose();
                 view.setVisible(true);
-
             }
         });
         panel.add(backButton);
 
-
-        setContentPane(panel);
         GroupLayout layout = new GroupLayout(panel);
         panel.setLayout(layout);
-
+        setContentPane(panel);
     }
-    public void checkUser(boolean isValidUser,String id)
-    {
-        if(!isValidUser){
+
+    public void checkUser(boolean isValidUser,String id){
+        if(!isValidUser){               //if false throws a pop up worker doesn't exist
             JOptionPane.showMessageDialog(null,"Worker "+ id+ " does not exist");
         }
-        else
-        {
+        else{                  // if true throws pop up worker deleted and change pages to main page
             JOptionPane.showMessageDialog(null,"Worker ID:  "+id+" deleted"," deleted",1);
             MainPage view=new View.MainPage();
             dispose();

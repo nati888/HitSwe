@@ -13,8 +13,8 @@ public class SearchingWorkerPage  extends JFrame {
     private JPanel panel;
     private JLabel userLabel;
     private JTextField userText;
-    private JButton button;
-    private JButton back;
+    private JButton searchButton;
+    private JButton backButton;
 
     private JTextField lastName;
     private JLabel lastNameLabel;
@@ -147,18 +147,18 @@ public class SearchingWorkerPage  extends JFrame {
         passwordField.setEditable(false);
         panel.add(passwordField);
 
-        back=new JButton("Back");
-        back.setBounds(350,330,120,25);
+        backButton=new JButton("Back");
+        backButton.setBounds(350,330,120,25);
 
-        button = new JButton("Search");
-        button.setBounds(350, 20, 120, 25);
+        searchButton = new JButton("Search");
+        searchButton.setBounds(350, 20, 120, 25);
 
 
         userText = new JTextField();
         userText.setBounds(130, 20, 165, 25);
         panel.add(userText);
 
-        back.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {            //back button returns the user to main page
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainPage view=new View.MainPage();
@@ -166,8 +166,9 @@ public class SearchingWorkerPage  extends JFrame {
                 view.setVisible(true);
             }
         });
+        panel.add(backButton);
 
-        button.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {       //search button finds the worker by ID and returns it to page
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean success = false;
@@ -180,15 +181,11 @@ public class SearchingWorkerPage  extends JFrame {
 
             }
         });
-        panel.add(button);
-
-        panel.add(back);
-
-        setContentPane(panel);
+        panel.add(searchButton);
 
         GroupLayout layout = new GroupLayout(panel);
         panel.setLayout(layout);
-
+        setContentPane(panel);
     }
 
     public void checkID(boolean isValidId, String id) {
@@ -196,17 +193,17 @@ public class SearchingWorkerPage  extends JFrame {
             JOptionPane.showMessageDialog(null, "ID " + id + " is not found");
         }else
         {
-            Object[] worker = controller.getWorker(userText.getText());
-            lastNameField.setText((String) worker[0]);
-            firstNameField.setText((String) worker[1]);
-            IDField.setText(String.valueOf(worker[2]));
-            mailField.setText((String) worker[3]);
-            departmentField.setText(String.valueOf(worker[4]));
-            jobField.setText(String.valueOf(worker[5]));
-            experienceField.setText(String.valueOf(worker[6]));
-            baseSalaryField.setText(String.valueOf(worker[7]));
-            userNameField.setText((String) worker[8]);
-            passwordField.setText((String) worker[9]);
+            Object[] worker = controller.getWorker(userText.getText());     //calls controller and finds if workers exist
+            lastNameField.setText((String) worker[0]);  //print to user last name field
+            firstNameField.setText((String) worker[1]); //print to user first name field
+            IDField.setText(String.valueOf(worker[2])); //print to user ID field
+            mailField.setText((String) worker[3]);      //print to user mail field
+            departmentField.setText(String.valueOf(worker[4])); //print to user department field
+            jobField.setText(String.valueOf(worker[5]));    //print to user job ID field
+            experienceField.setText(String.valueOf(worker[6])); //print to user experience field
+            baseSalaryField.setText(String.valueOf(worker[7])); //print to user base salary field
+            userNameField.setText((String) worker[8]);  //print to user user name field
+            passwordField.setText((String) worker[9]);  //print to user password field
         }
     }
 }
