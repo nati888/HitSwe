@@ -14,6 +14,7 @@ public class LoginRepository {
     }
 
     public boolean validateUser(String user_name,String password){
+        File.fileRead();
         Workers worker_list=Workers.getMySingelton();
         for (int i = 0; i < worker_list.getSize(); i++)
             if (worker_list.getWorker_i(i).getUser_name().equals(user_name) && worker_list.getWorker_i(i).getPassword().equals(password))

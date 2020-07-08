@@ -17,6 +17,7 @@ public class AddWorkerRepository {
         Workers worker_list=Workers.getMySingelton();
         Worker worker=new Worker( last_name, first_name, Integer.parseInt(ID),  mail, Integer.parseInt(department_id),  Integer.parseInt(Job_ID),Integer.parseInt(experience), Integer.parseInt(base_salary), user_name,  password);
         worker_list.addWorker(worker);
+        File.fileWrite();
         return UUID.randomUUID().toString();
     }
 
