@@ -54,7 +54,7 @@ public class AddWorkerPage extends JFrame {
 
         {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setBounds(400, 100, 500, 500);
+            setBounds(400,100, 500, 500);
             panel = new JPanel();
             panel.setBorder(new EmptyBorder(5, 5, 5, 5));
             setTitle("TSBN .inc");

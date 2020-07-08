@@ -34,7 +34,7 @@ public class DeletePage extends JFrame {
 
     public DeletePage() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(800, 100, 500, 300);
+        setBounds(400,100,400,300);
         panel = new JPanel();
         panel.setBorder(new EmptyBorder(5, 5, 5, 5));
         setTitle("TSBN .inc");

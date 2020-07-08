@@ -59,7 +59,7 @@ public class UpdateWorkerPage  extends JFrame {
     public UpdateWorkerPage(){
         this.setTitle("TSBN inc.");                                      //Frame Title
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                 //Frame closing setup
-        setBounds(600,300,600,400);                 //Frame size
+        setBounds(400,100, 500, 500);                 //Frame size
         panel =new JPanel();
         userLabel=new JLabel("Enter worker's ID:");
         userLabel.setBounds(10,20,120,25);

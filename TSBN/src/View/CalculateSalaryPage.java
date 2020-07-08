@@ -37,7 +37,7 @@ public class CalculateSalaryPage  extends JFrame {
         this.setTitle("TSBN inc.");                                      //Frame Title
         //this.setSize(1000,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                 //Frame closing setup
-        setBounds(600,300,600,400);                 //Frame size
+        setBounds(400,100,400,300);                 //Frame size
         panel =new JPanel();
         //panel.setBorder(new EmptyBorder(5,5,5,5));  //inner panel borders
         userLabel=new JLabel("Enter worker's ID:");
