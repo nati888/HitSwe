@@ -7,8 +7,8 @@ public class AddWorkerController {
     Workers worker_list=Workers.getMySingelton();
 
     private static AddWorkerController Instance;
-    private AddWorkerRepository add_worker_repository = AddWorkerRepository.getMySingelton();
-    public static AddWorkerController getMySingelton() {
+    private AddWorkerRepository add_worker_repository = AddWorkerRepository.getMySingelton(); // initialize add worker repository object
+    public static AddWorkerController getMySingelton() { // create singelton
         if (Instance == null)
             Instance = new AddWorkerController();
         return Instance;
@@ -20,7 +20,7 @@ public class AddWorkerController {
 
             return false;
 
-        String session = add_worker_repository.addWorker(last_name, first_name, ID, mail, department_id, Job_ID, experience, base_salary, user_name, password);
+        String session = add_worker_repository.addWorker(last_name, first_name, ID, mail, department_id, Job_ID, experience, base_salary, user_name, password);// call to the repository object
         if (session != null) {
             System.out.println("Session token: " + session);
             return true;

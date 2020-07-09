@@ -23,7 +23,7 @@ public class Worker extends Person {
         this.job_ID = Job_ID;
         this.experience = experience;
         this.base_Salary = base_salary;
-        this.hours = 0;
+        this.hours = 100;
         this.assessment = new ArrayList<String>();
         this.user_name=user_name;
         this.password = password;

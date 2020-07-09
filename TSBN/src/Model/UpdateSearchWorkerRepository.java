@@ -8,13 +8,13 @@ public class UpdateSearchWorkerRepository {
     private static UpdateSearchWorkerRepository Instance;
     private UpdateSearchWorkerRepository() { }
 
-    public static UpdateSearchWorkerRepository getMySingelton(){
+    public static UpdateSearchWorkerRepository getMySingelton(){  // create singleton
         if(Instance==null)
             Instance=new UpdateSearchWorkerRepository();
         return Instance;
     }
 
-    public Object[] getworker(String ID)
+    public Object[] getworker(String ID) //return array of objects- the details of worker based on his id
     {
         Workers worker_list=Workers.getMySingelton();
         Worker worker=worker_list.searchingWorkerById(ID);
@@ -24,21 +24,19 @@ public class UpdateSearchWorkerRepository {
     public String updateWorker(String last_name,String first_name,String ID, String mail,String department_id, String Job_ID, String experience, String base_salary , String user_name, String password) throws AlreadyExistException {
         Workers worker_list = Workers.getMySingelton();
         Worker worker1 = worker_list.searchingWorkerById(ID);
-
         Departments departments_list= Departments.getMySingelton();
         Jobs jobs_list=Jobs.getMySingelton();
-       // Worker worker= new WorkerBuilder().Last_name(last_name).First_name(first_name).ID(Integer.parseInt(ID)).Mail(mail).Department_id(Integer.parseInt(department_id)).Job_ID(Integer.parseInt(Job_ID)).Experience(Integer.parseInt(experience)).Base_salary(Integer.parseInt(base_salary)).User_name(user_name).Password(password).createWorker();
-        if(worker_list.SearchingWorkerUserIdBool(user_name,worker1.getIDperson())) //check if the user name that wants to enter is already exist
+        if(worker_list.SearchingWorkerUserIdBool(user_name,worker1.getIDperson())) //check if the required user name is already exist
             throw new AlreadyExistException("user" + user_name +"is already exist" );
-        if(Double.parseDouble(experience)<0) //check if the user name that wants to enter is already exist
+        if(Double.parseDouble(experience)<0) //check if the experience is lower than 0
             throw new AlreadyExistException("Experience can bot be lower than 0" );
-        if(Double.parseDouble(base_salary)<30) //check if the user name that wants to enter is already exist
+        if(Double.parseDouble(base_salary)<30) //check if salary is lower than 30
             throw new AlreadyExistException("Base salary can bot be lower than 30" );
-        if(!(departments_list.SearchingDepartmentBool(Integer.parseInt(department_id)))) //check if the department that wants to enter exists
+        if(!(departments_list.SearchingDepartmentBool(Integer.parseInt(department_id)))) //check if the required department is exist
             throw new AlreadyExistException("Department:" + department_id +  "not exist");
-        if(!(jobs_list.SearchingJobBool(Integer.parseInt(Job_ID)))) //check if the job that wants to enter exists
+        if(!(jobs_list.SearchingJobBool(Integer.parseInt(Job_ID)))) //check if the required job is exist
             throw new AlreadyExistException("Job:" + Job_ID +  "not exist");
-        if(!(worker1.CheckEmail(mail))) //check if the mail that wants to enter valid
+        if(!(worker1.CheckEmail(mail))) //check if the required email is valid
             throw new AlreadyExistException("mail:" + mail +  "invalid");
 
         worker1.changeExperience((Float.parseFloat(experience)));
@@ -48,7 +46,7 @@ public class UpdateSearchWorkerRepository {
         worker1.changeSalary(Float.parseFloat(base_salary));
         worker1.changePassword(password);
         worker1.changeUserName(user_name);
-        File.fileWrite();
+        File.fileWrite(); // writing the changes to the file
         return UUID.randomUUID().toString();
     }
 }

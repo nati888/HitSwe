@@ -8,13 +8,13 @@ public class CalculateSalaryRepository {
     private CalculateSalaryRepository() {
     }
 
-    public static CalculateSalaryRepository getMySingelton() {
+    public static CalculateSalaryRepository getMySingelton() { // create singelton
         if (Instance == null)
             Instance = new CalculateSalaryRepository();
         return Instance;
     }
 
-    public boolean checkValidId(String ID) {
+    public boolean checkValidId(String ID) { // check if there is worker with the required id
         if (worker_list.searchingWorkerById(ID) == null)
             return false;
         return true;
@@ -27,7 +27,7 @@ public class CalculateSalaryRepository {
         return String.valueOf(worker.calculateSalary());
     }
 
-    public boolean CheckCalculateBool(String ID) {
+    public boolean CheckCalculateBool(String ID) { // check if the result of calculate salary is not lower than 0
         Workers worker_list = Workers.getMySingelton();
         Worker worker = worker_list.searchingWorkerById(ID);
         double sum = worker.calculateSalary();
