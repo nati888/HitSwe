@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
-public class UpdateWorkerTest  {
+public class UpdateWorkerTest  { //Tests after update worker details
     Workers worker_list = Workers.getMySingelton();
     Worker worker1 = new Worker("lalum","tal",313,"tal@a",1,2 ,1,1,"tal1","111");
 
     @Test
-    public void UpdateName(){
+    public void UpdateFirstName(){ //Check if the first name update has been performed
         worker_list.addWorker(worker1);
         Assertions.assertEquals(worker1.getFirst_name(),"tal");
         worker1.setFirst_name("s");
@@ -17,7 +17,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateLastLame(){
+    public void UpdateLastLame(){ //Check if the last name update has been performed
         worker_list.addWorker(worker1);
         Assertions.assertEquals(worker1.getLast_name(),"lalum");
         worker1.setLast_name("sa");
@@ -26,7 +26,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateEmail(){
+    public void UpdateEmail(){ // Check if the email update has been performed
         worker_list.addWorker(worker1);
         worker1.setMail("t@t");
         Assertions.assertEquals(worker1.getMail(),"t@t");
@@ -34,7 +34,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateDepartment(){
+    public void UpdateDepartment(){ // Check if the first name update has been performed
         worker_list.addWorker(worker1);
         worker1.changeJobID(2);
         Assertions.assertEquals(worker1.getJob_ID(),2);
@@ -43,7 +43,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateJobId(){
+    public void UpdateJobId(){ // Check if the id of the job update has been performed
         worker_list.addWorker(worker1);
         Assertions.assertEquals(worker1.getJob_ID(),2);
         worker1.changeJobID(50);
@@ -51,7 +51,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateSalary(){
+    public void UpdateSalary(){ // Check if the salary update has been performed
         worker_list.addWorker(worker1);
         worker1.changeSalary(50);
         Assertions.assertEquals(worker1.getBase_Salary(),50);
@@ -60,7 +60,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdateUsername(){
+    public void UpdateUsername(){ // Check if the username update has been performed
         worker_list.addWorker(worker1);
         worker1.changeUserName("asa");
         Assertions.assertEquals(worker1.getUser_name(), "asa");
@@ -69,7 +69,7 @@ public class UpdateWorkerTest  {
     }
 
     @Test
-    public void UpdatePassword(){
+    public void UpdatePassword(){// Check if the password update has been performed
         worker_list.addWorker(worker1);
         worker1.changePassword("t50");
         Assertions.assertEquals(worker1.getPassword(),"t50");

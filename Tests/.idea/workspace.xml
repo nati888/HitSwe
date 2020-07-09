@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ab060a0-49b5-4677-94c8-e979fc0b3f8e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../TSBN/WorkersDB.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TSBN/WorkersDB.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TSBN/src/Model/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TSBN/src/Model/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddWorkerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AddWorkerTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1eRc1d0OKap0DrSSnzzXMMqeQ7M" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ab060a0-49b5-4677-94c8-e979fc0b3f8e" name="Default Changelist" comment="" />
+      <created>1594287632446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594287632446</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="274" y="181" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1594287715921">
+      <screen x="0" y="0" width="1097" height="577" />
+    </state>
+    <state x="274" y="181" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1097.577@0.0.1097.577" timestamp="1594287715921" />
+  </component>
+</project>
