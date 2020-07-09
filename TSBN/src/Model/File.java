@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class File {
     public static void main(String[]args) {
-      // fileWrite(); // call to file write function
+      fileWrite(); // call to file write function
         fileRead(); // call to file read function
     }
 
@@ -18,10 +18,6 @@ public class File {
         try {
             Workers worker_list = Workers.getMySingelton();
             ArrayList<Worker> workers = new ArrayList();
-
-//            Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,1,105,52,"sapir","irani");
-//            worker_list.addWorker(worker);
-//            worker.setHours(5);
 
 
             for (int i = 0; i < worker_list.getSize(); i++) { // convert singelton to array list
@@ -45,6 +41,9 @@ public class File {
         String filename = "WorkersDB.txt";
         ObjectInputStream inputStream=null; // intialize input object
         Workers worker_list = Workers.getMySingelton();
+        Worker worker1=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,1,105,52,"sapir","irani");
+        worker_list.addWorker(worker1);
+        worker1.setHours(5);
         ArrayList<Worker> workers;
         try {
             inputStream = new ObjectInputStream(new FileInputStream(filename)); // creating a new input object
@@ -53,7 +52,7 @@ public class File {
 //                worker.printWorker();
             for (Worker worker : workers) // copy to singeltone
                 worker_list.addWorker(worker);
-//            worker_list.getWorker_i(0).printWorker();
+//           worker_list.getWorker_i(0).printWorker();
 //
 //            System.out.println("our list: ");
 //            for (int i = 0; i < worker_list.getSize(); i++)

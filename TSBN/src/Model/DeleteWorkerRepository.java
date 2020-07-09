@@ -9,22 +9,23 @@ public class DeleteWorkerRepository {
     private static DeleteWorkerRepository Instance;
     private DeleteWorkerRepository() { }
 
-    public static DeleteWorkerRepository getMySingelton(){
+    public static DeleteWorkerRepository getMySingelton(){ // create singelton
         if(Instance==null)
             Instance=new DeleteWorkerRepository();
         return Instance;
     }
 
     public String deleteWorker(String ID) throws IOException {
-       // Worker worker=new Worker("irani","sapir",315424283,"sapir@gmail.com",5,2,105,52,"ben","irani");
-       // Worker worker2=new Worker("irani","sapir",208956052,"sapir@gmail.com",5,2,105,52,"ben","irani");
-       // worker_list.addWorker(worker);
-       // worker_list.addWorker(worker2);
-       // System.out.println(worker_list.getWorker_i(0).getUser_name());
-        Worker worker1=worker_list.searchingWorkerById(ID);
-        if (worker1==null)
+        Worker worker1=worker_list.searchingWorkerById(ID); // check if there is a worker with the required id
+        Ex_Workers ex_worker_list=Ex_Workers.getMySingelton();
+        if (worker1==null) // return null if there is not worker with the required id
             return null;
+        Ex_Worker ex_worker1=new Ex_Worker(worker1.getLast_name(),worker1.getFirst_name(),worker1.getIDperson(),worker1.getMail(),worker1.getNum_Worker(),worker1.getDepartment_ID(),worker1.getExperience(),worker1.getJob_ID());// create a new object of ex worker
+        ex_worker_list.addWorker(ex_worker1); // add ex worker to the list
+        File_Ex.fileWrite(); // write to the file
         worker_list.removeWorker(worker1);
+        File.fileWrite(); // write to the file
+
         return UUID.randomUUID().toString();
     }
 
