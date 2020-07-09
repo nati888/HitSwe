@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class AddWorkerTest {
+public class AddWorkerTest {//tests about after add worker to the workers list
 
     @Test
-    public void CheckSizeOfListAfterAddWorker(){
+    public void CheckSizeOfListAfterAddWorker(){//check if the size of the workers list increment after worker added
         Workers worker_list = Workers.getMySingelton();
         int BaseSize=worker_list.getSize();
         Worker worker1 = new WorkerBuilder().createWorker();
@@ -19,7 +19,8 @@ public class AddWorkerTest {
     }
 
     @Test
-    public void searchingWorkerAfterAddHimToTheList(){
+    public void searchingWorkerAfterAddHimToTheList(){ //check if the  worker that added to the workers list exist there
+                                                        //search the worker by username and by ID
         Workers worker_list = Workers.getMySingelton();
         Worker worker1 = new Worker("lalum","tal",313,"tal@",1,1 ,1,1,"tal1","111");
         Worker worker2 = new Worker("lalum2","tal",3132,"tal@",1,1 ,1,1,"tal2","111");

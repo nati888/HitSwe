@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class CalculateSalaryTest {
+public class CalculateSalaryTest { //Calculate salary tests
 
     @Test
-    public void CheckTheMul(){
+    public void CheckCalculateSalary(){ // test for the calculating salary after change the base salary per hour and the amount of work hours
         Worker worker1 = new Worker("lalum3","tal",313,"tal@",1,1 ,1,50,"tal3","111");
         worker1.setHours(100);
         Assertions.assertEquals(worker1.calculateSalary(),5000);

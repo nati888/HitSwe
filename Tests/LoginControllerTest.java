@@ -10,7 +10,7 @@ public class LoginControllerTest {
     LoginController loginController = LoginController.getMySingelton();
 
     @Test
-    public void loginFailedWhenUserIsEmpty() { //test for login failed when username is empty//
+    public void loginFailedWhenUserIsEmpty() { //test for login failed when username is empty
         try {
             loginController.login("  ", "111");
             Assertions.fail("Login success but should failed");
@@ -20,7 +20,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void loginFailedWhenUserAndPasswordIsEmpty() { //test for login failed when password and username is empty//
+    public void loginFailedWhenUserAndPasswordIsEmpty() { //test for login failed when password and username is empty
         try {
             loginController.login("  ", "  ");
             Assertions.fail("Login success but should failed");
@@ -30,7 +30,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void CheckIfUsernameIsValid() throws AlreadyExistException { //Checks if user name and password match//
+    public void CheckMatch() throws AlreadyExistException { //Test if user name and password match
         Workers worker_list= Workers.getMySingelton();
         Worker worker1 = new Worker("lalum","tal",313,"tal@",1,1 ,1,1,"tal","111");
         worker_list.addWorker(worker1);
