@@ -60,41 +60,11 @@ public class Worker extends Person {
     public void changePassword(String new_pass) {
         this.password=new_pass;
     }
-    public boolean CheckEmail() {
-        int counter=0, i=0;
-        if(this.getMail().charAt(i)=='@')
-        return false;
-        for (i=1;i<this.getMail().length();i++) {
-            if (this.getMail().charAt(i) == '@')
-                counter++;
-            if (counter > 1)
-                return false;
-        }
-        if(counter==1)
-        return true;
-        return false;
-    }
-    public boolean CheckEmail(String mail) {
-        int counter=0, i=0;
-        if(mail.charAt(i)=='@')
-            return false;
-        for (i=1;i<mail.length();i++) {
-            if (this.getMail().charAt(i) == '@')
-                counter++;
-            if (counter > 1)
-                return false;
-        }
-        if(counter==1)
-            return true;
-        return false;
-    }
-    public boolean checkID(String id) {
+
+    public boolean checkID(String id) {// check if the id is valid, 9 numbers
         if(id.length() == 9)
             return true;
         return false;
-    }
-    public void printWorker(){
-        System.out.println("userName: "+this.getUser_name()+" password: "+this.getPassword()+" first name: "+this.getFirst_name());
     }
 }
 

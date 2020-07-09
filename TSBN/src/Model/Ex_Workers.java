@@ -29,10 +29,10 @@ public class Ex_Workers {
                 return ex_worker_List.getWorker_i(i);
         return null;
     }
-    public  Ex_Worker getWorker_i(int i){ return ex_worker_List.get(i);
+    public  Ex_Worker getWorker_i(int i){ return ex_worker_List.get(i); // get ex worker in index i
     }
 
-    public Boolean SearchingWorkerBool(int ID){
+    public Boolean SearchingWorkerBool(int ID){ // check if there is exist ex worker with the required id , return boolean
         Ex_Workers ex_worker_List=Ex_Workers.getMySingelton();
         for (int i=0;i<ex_worker_List.getSize();i++)
             if(ex_worker_List.getWorker_i(i).getIDperson()==ID)
@@ -42,8 +42,8 @@ public class Ex_Workers {
 
     public int getSize(){
         return ex_worker_List.size();
-    }
-    public void setWorker_List_i(int i, Ex_Worker new_worker){
+    } // get the size of the list
+    public void setWorker_List_i(int i, Ex_Worker new_worker){ // set ex worker in index i
         ex_worker_List.set(i,new_worker);}
 
 }

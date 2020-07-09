@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-abstract class  Person implements Serializable {
+abstract class  Person implements Serializable { // abstract class
     private  int ID;
     private  String last_name;
     private  String first_name;
@@ -22,5 +22,20 @@ abstract class  Person implements Serializable {
     public void setMail(String mail) { this.mail = mail; }
     public int getIDperson(){
         return this.ID;
+    }
+
+    public boolean CheckEmail(String mail) { // check if the mail is valid
+        int counter=0, i=0;
+        if(mail.charAt(i)=='@')
+            return false;
+        for (i=1;i<mail.length();i++) {
+            if (this.getMail().charAt(i) == '@')
+                counter++;
+            if (counter > 1)
+                return false;
+        }
+        if(counter==1)
+            return true;
+        return false;
     }
 }
