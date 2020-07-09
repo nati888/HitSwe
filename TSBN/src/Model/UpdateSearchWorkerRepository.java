@@ -26,21 +26,41 @@ public class UpdateSearchWorkerRepository {
         Worker worker1 = worker_list.searchingWorkerById(ID);
         Departments departments_list= Departments.getMySingelton();
         Jobs jobs_list=Jobs.getMySingelton();
+        String old_mail=worker1.getMail();
+        worker1.setMail(mail);
         if(worker_list.SearchingWorkerUserIdBool(user_name,worker1.getIDperson())) //check if the required user name is already exist
-            throw new AlreadyExistException("user" + user_name +"is already exist" );
+        {
+            worker1.setMail(old_mail);
+            throw new AlreadyExistException("user" + user_name + "is already exist");
+        }
         if(Double.parseDouble(experience)<0) //check if the experience is lower than 0
-            throw new AlreadyExistException("Experience can bot be lower than 0" );
+        {
+            worker1.setMail(old_mail);
+            throw new AlreadyExistException("Experience can bot be lower than 0");
+        }
         if(Double.parseDouble(base_salary)<30) //check if salary is lower than 30
-            throw new AlreadyExistException("Base salary can bot be lower than 30" );
+        {
+            worker1.setMail(old_mail);
+            throw new AlreadyExistException("Base salary can bot be lower than 30");
+        }
         if(!(departments_list.SearchingDepartmentBool(Integer.parseInt(department_id)))) //check if the required department is exist
-            throw new AlreadyExistException("Department:" + department_id +  "not exist");
+        {
+            worker1.setMail(old_mail);
+            throw new AlreadyExistException("Department:" + department_id + "not exist");
+        }
         if(!(jobs_list.SearchingJobBool(Integer.parseInt(Job_ID)))) //check if the required job is exist
-            throw new AlreadyExistException("Job:" + Job_ID +  "not exist");
-        if(!(worker1.CheckEmail(mail))) //check if the required email is valid
+        {
+            worker1.setMail(old_mail);
+            throw new AlreadyExistException("Job:" + Job_ID + "not exist");
+        }
+        if(!(worker1.CheckEmail(worker1.getMail()))) //check if the required email is valid
+        {
+            worker1.setMail(old_mail);
             throw new AlreadyExistException("mail:" + mail +  "invalid");
+        }
 
         worker1.changeExperience((Float.parseFloat(experience)));
-        worker1.setMail(mail);
+       // worker1.setMail(mail);
         worker1.changeDepartmentID(Integer.parseInt(department_id));
         worker1.changeJobID(Integer.parseInt(Job_ID));
         worker1.changeSalary(Float.parseFloat(base_salary));

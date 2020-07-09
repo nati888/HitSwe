@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class Jobs {
         private static Jobs Instance = new Jobs();
-        private static ArrayList<Job> jobs_list= new ArrayList<Job>();
+        private static ArrayList<Job> jobs_list= new ArrayList<Job>(); //create a list of jobs
 
         private Jobs() {
 
         }
 
-        public static Jobs getMySingelton() {
+        public static Jobs getMySingelton() { // create singleton and initialize it
 
             if(jobs_list.size()==0) {
                 Job job1=new Job(1,"Name_1");
@@ -29,20 +29,20 @@ public class Jobs {
 
        public void addJob(Job new_job) {
             jobs_list.add(new_job);
-        }
+        } // add new job to the list
 
-        public void removeJob(Job remove_job) throws IOException {
+        public void removeJob(Job remove_job) throws IOException { //remove job from the list
             jobs_list.remove(remove_job);
 
         }
-        public Job searchingJobById(int ID) {
+        public Job searchingJobById(int ID) { // search job in the list by id
             for (int i = 0; i < this.jobs_list.size(); i++)
                 if (jobs_list.get(i).getJob_ID() == ID)
                     return jobs_list.get(i);
             return null;
         }
 
-        public Boolean SearchingJobBool(int ID) {
+        public Boolean SearchingJobBool(int ID) { // search job in the list by id, return boolean
             Jobs jobs_list = Jobs.getMySingelton();
             for (int i = 0; i < jobs_list.getSize(); i++)
                 if (jobs_list.getJob_i(i).getJob_ID() == ID)
